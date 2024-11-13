@@ -10,6 +10,6 @@ export class BillService {
   constructor(private http: HttpClient) { }
 
   getByWalletId(walletId: number) {
-    return this.http.get(`${this.baseUrl}?walletId=${walletId}`);
+    return this.http.get(`${this.baseUrl}/bills?walletId=${walletId}`);
   }
 }

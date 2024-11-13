@@ -15,11 +15,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.menu-icon, .profile-icon {
-  font-size: 24px;
-  color: #333;
-}
-
 .content {
   max-width: 600px;
   padding-top: 1rem;
