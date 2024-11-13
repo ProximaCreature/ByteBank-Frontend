@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c4a421db-d30e-43fe-8c0b-23f66134b153" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/components/wallet-form/wallet-form.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/pages/wallet-creation-page/wallet-creation-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/pages/wallet-creation-page/wallet-creation-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/pages/wallet-creation-page/wallet-creation-page.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/pages/wallet-creation-page/wallet-creation-page.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bytebank/src/environment/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/environment/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,20 +45,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/wallet-form",
-    "last_opened_file_path": "D:/CAMILA/UPC/Ciclo 5/Open source/Angular Proyectos/peliculas-crud",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\CAMILA\\UPC\\Ciclo 6\\Finanzas e ingenieria economica\\Trabajo grupal\\ByteBank-Frontend\\bytebank\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/wallet-form&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CAMILA/UPC/Ciclo 5/Open source/Angular Proyectos/peliculas-crud&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\CAMILA\\UPC\\Ciclo 6\\Finanzas e ingenieria economica\\Trabajo grupal\\ByteBank-Frontend\\bytebank\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CAMILA\UPC\Ciclo 6\Finanzas e ingenieria economica\Trabajo grupal\ByteBank-Frontend\bytebank\src\app\views" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -78,5 +90,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

@@ -4,9 +4,9 @@ import {WalletFormComponent} from '../../components/wallet-form/wallet-form.comp
 @Component({
   selector: 'app-wallet-creation-page',
   standalone: true,
-  imports: [
-    WalletFormComponent
-  ],
+    imports: [
+        WalletFormComponent
+    ],
   templateUrl: './wallet-creation-page.component.html',
   styleUrl: './wallet-creation-page.component.css'
 })
