@@ -1,0 +1,18 @@
+.container {
+  height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.content {
+  padding-bottom: 1rem;
+}

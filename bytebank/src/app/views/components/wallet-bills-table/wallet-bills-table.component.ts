@@ -1,18 +1,10 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {
-  MatCell,
-  MatCellDef,
-  MatColumnDef,
-  MatHeaderCell,
-  MatHeaderRow,
-  MatHeaderRowDef,
-  MatRow, MatRowDef, MatTable, MatTableDataSource, MatTableModule
+import {MatTableDataSource, MatTableModule
 } from "@angular/material/table";
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
-import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
-import {Bill} from '../../model/bill.model';
-import {BillService} from '../../services/bill.service';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSort, MatSortModule} from "@angular/material/sort";
+import {Bill} from '../../../models/bill.model';
+import {BillController} from '../../../controllers/bill.controller';
 
 @Component({
   selector: 'app-wallet-bills-table',
@@ -38,12 +30,12 @@ export class WalletBillsTableComponent implements AfterViewInit {
     this.getBills();
   }
 
-  constructor(private billService: BillService) {
+  constructor(private billController: BillController) {
   }
 
   getBills() {
     const walletId = 1; // Reemplaza con el ID de la cartera correspondiente
-    this.billService.getByWalletId(walletId).subscribe(
+    this.billController.getWalletBill(walletId).subscribe(
       res => {
         if (Array.isArray(res)) {
           const billData: Bill[] = res.map((bill: any) => new Bill(bill.id, bill.walletId, bill.name, bill.faceValue, bill.signatureDate));

@@ -1,0 +1,9 @@
+.invoices-table-container {
+  overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+  .invoices-table {
+    max-width: 100%;
+  }
+}

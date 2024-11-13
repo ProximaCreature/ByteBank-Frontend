@@ -11,8 +11,8 @@ import {
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MatSidenavContainer, MatSidenavContent, MatSidenavModule} from "@angular/material/sidenav";
 import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
-import {BillService} from '../../services/bill.service';
-import {Bill} from '../../model/bill.model';
+import {BillService} from '../../../services/bill.service';
+import {Bill} from '../../../models/bill.model';
 
 @Component({
   selector: 'app-wallet-details',
@@ -32,6 +32,7 @@ export class WalletDetailsComponent {
 
 const WALLETS = [
   {
+    name: 'Cartera Alfa',
     tcea: '12.5%',
     received_value: 150000,
     face_value: 200000,
