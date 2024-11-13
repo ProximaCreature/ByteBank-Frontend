@@ -29,44 +29,44 @@ import {Wallet} from '../../model/wallet.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WalletFormComponent {
-  carteraForm: FormGroup;
+  walletForm: FormGroup;
 
   constructor(private fb: FormBuilder, private walletService: WalletService, private _snackBar: MatSnackBar) {
-    this.carteraForm = this.fb.group({
-      nombreCartera: ['', Validators.required],
-      tasaInteres: ['', Validators.required],
-      tipoTasaInteres: ['', Validators.required],
-      periodoTasa: ['', Validators.required],
-      periodoCapitalizacion: ['', Validators.required],
-      comisionActivacion: ['', Validators.required],
-      portes: ['', Validators.required],
-      porcentajeRetencion: ['', Validators.required],
-      gastosAdministracion: ['', Validators.required],
-      seguroDegravamen: ['', Validators.required],
-      seguroRiesgo: ['', Validators.required],
-      plazoOperacion: ['', Validators.required],
-      fechaDescuento: ['', Validators.required],
-      pagoFueraFecha: [false],
+    this.walletForm = this.fb.group({
+      walletName: ['', Validators.required],
+      interestRate: ['', Validators.required],
+      interestRateType: ['', Validators.required],
+      interestRatePeriod: ['', Validators.required],
+      capitalizationPeriod: ['', Validators.required],
+      activationFee: ['', Validators.required],
+      portabilityFee: ['', Validators.required],
+      retentionPercentage: ['', Validators.required],
+      administrativeExpenses: ['', Validators.required],
+      mortgageInsurance: ['', Validators.required],
+      riskInsurance: ['', Validators.required],
+      operationTerm: ['', Validators.required],
+      discountDate: ['', Validators.required],
+      paymentOutOfDate: [false],
     });
   }
 
   onSubmit() {
-    if (this.carteraForm.valid) {
+    if (this.walletForm.valid) {
       const walletData = new Wallet(
         null,
-        this.carteraForm.value.nombreCartera,
-        this.carteraForm.value.tasaInteres,
-        this.carteraForm.value.tipoTasaInteres,
-        this.carteraForm.value.periodoTasa,
-        this.carteraForm.value.periodoCapitalizacion,
-        this.carteraForm.value.comisionActivacion,
-        this.carteraForm.value.portes,
-        this.carteraForm.value.porcentajeRetencion,
-        this.carteraForm.value.gastosAdministracion,
-        this.carteraForm.value.seguroDegravamen,
-        this.carteraForm.value.seguroRiesgo,
-        this.carteraForm.value.plazoOperacion,
-        this.carteraForm.value.fechaDescuento
+        this.walletForm.value.walletName,
+        this.walletForm.value.interestRate,
+        this.walletForm.value.interestRateType,
+        this.walletForm.value.interestRatePeriod,
+        this.walletForm.value.capitalizationPeriod,
+        this.walletForm.value.activationFee,
+        this.walletForm.value.portabilityFee,
+        this.walletForm.value.retentionPercentage,
+        this.walletForm.value.administrativeExpenses,
+        this.walletForm.value.mortgageInsurance,
+        this.walletForm.value.riskInsurance,
+        this.walletForm.value.operationTerm,
+        this.walletForm.value.discountDate
       );
 
       this.walletService.createWallet(walletData).subscribe((response) => {
@@ -81,7 +81,7 @@ export class WalletFormComponent {
             duration: 2000,
           });
         });
-      console.log('Formulario válido:', this.carteraForm.value);
+      console.log('Formulario válido:', this.walletForm.value);
     } else {
       console.log('Formulario inválido');
       this.printFormErrors();
@@ -89,8 +89,8 @@ export class WalletFormComponent {
   }
 
   printFormErrors() {
-    Object.keys(this.carteraForm.controls).forEach(key => {
-      const controlErrors = this.carteraForm.get(key)?.errors;
+    Object.keys(this.walletForm.controls).forEach(key => {
+      const controlErrors = this.walletForm.get(key)?.errors;
       if (controlErrors) {
         console.log(`Error en el campo ${key}:`, controlErrors);
       }
