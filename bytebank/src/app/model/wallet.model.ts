@@ -6,7 +6,7 @@ export class Wallet {
   interestPeriod: any;
   capitalizationPeriod: any;
   activationFee: any;
-  port: any;
+  portabilityFee: any;
   retentionPercentage: any;
   administrativeExpenses: any;
   mortgageInsurance: any;
@@ -14,7 +14,7 @@ export class Wallet {
   operationTerm: any;
   discountDate: any;
 
-  constructor(id: any, name: any, interestRate: any, interestType: any, interestPeriod: any, capitalizationPeriod: any, activationFee: any, port: any, retentionPercentage: any, administrativeExpenses: any, mortgageInsurance: any, riskInsurance: any, operationTerm: any, discountDate: any) {
+  constructor(id: any, name: any, interestRate: any, interestType: any, interestPeriod: any, capitalizationPeriod: any, activationFee: any, portabilityFee: any, retentionPercentage: any, administrativeExpenses: any, mortgageInsurance: any, riskInsurance: any, operationTerm: any, discountDate: any) {
     this.id = id;
     this.name = name;
     this.interestRate = interestRate;
@@ -22,7 +22,7 @@ export class Wallet {
     this.interestPeriod = interestPeriod;
     this.capitalizationPeriod = capitalizationPeriod;
     this.activationFee = activationFee;
-    this.port = port;
+    this.portabilityFee = portabilityFee;
     this.retentionPercentage = retentionPercentage;
     this.administrativeExpenses = administrativeExpenses;
     this.mortgageInsurance = mortgageInsurance;
