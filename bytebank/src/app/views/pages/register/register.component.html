@@ -86,10 +86,17 @@
           </mat-form-field>
         </div>
 
-        <mat-checkbox formControlName="acceptTerms">
-          Acepto los <span class="terms-conditions">Términos y Condiciones</span> y la <span
-            class="terms-conditions">Política de Privacidad</span>
-        </mat-checkbox>
+        <div class="form-field mt-1">
+          <label class="terms-label">
+            <input type="checkbox" formControlName="acceptTerms" class="terms-checkbox">
+            Acepto los <span class="terms-conditions">Términos y Condiciones</span> y la <span
+              class="terms-conditions">Política de Privacidad</span>
+          </label>
+          <div *ngIf="form.get('acceptTerms')?.invalid && form.get('acceptTerms')?.touched" class="error-message">
+            Debes aceptar los Términos y Condiciones
+          </div>
+        </div>
+
 
         <button type="submit" [disabled]="form.invalid" class="primary-button">Registrarse</button>
       </form>

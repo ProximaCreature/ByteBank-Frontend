@@ -1,4 +1,3 @@
-/* Estilos generales de la estructura y el diseño */
 .container {
   display: flex;
   height: 100vh;
@@ -81,6 +80,12 @@
 .terms-conditions {
   color: var(--accent-color);
   font-weight: 500;
+}
+
+.error-message {
+  color: #b4140f;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
 }
 
 @media (min-width: 1024px) {

@@ -6,10 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '@services/auth.service';
-import { RegisterReq } from '@models/register-req.model'; // Asegúrate de importar correctamente la interfaz
+import { RegisterReq } from '@models/register-req.model';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +19,6 @@ import { RegisterReq } from '@models/register-req.model'; // Asegúrate de impor
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatCheckboxModule,
     CommonModule
   ],
   templateUrl: './register.component.html',
