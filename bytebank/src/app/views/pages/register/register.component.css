@@ -37,6 +37,13 @@
   flex-flow: column nowrap;
 }
 
+.container-logo img {
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
 .header {
   width: 70%;
   max-width: 390px;
@@ -71,6 +78,11 @@
   background-color: var(--accent-color);
 }
 
+.terms-conditions {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
 @media (min-width: 1024px) {
   .container-sign-in,
   .container-logo {
@@ -90,4 +102,13 @@
   .header {
     text-align: center;
   }
+}
+
+/* !Auxiliares */
+.non-selectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: auto;
 }
