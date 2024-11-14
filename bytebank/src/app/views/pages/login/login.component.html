@@ -1,37 +1,37 @@
 <div class="container">
   <div class="container-sign-in">
     <div class="header">
-      <span>Access to </span>
-      <h1>Guardian Area</h1>
+      <span>Accede a </span>
+      <h1>ByteBank</h1>
     </div>
     <div class="form-container">
       <form class="example-form" [formGroup]="form" (ngSubmit)="login()">
         <div class="form-field">
-          <label>Username</label>
+          <label>Nombre de Usuario</label>
           <mat-form-field appearance="outline">
-            <input matInput formControlName="username" placeholder="Enter a username" class="form-control">
+            <input matInput formControlName="username" placeholder="Ingres el usuario" class="form-control">
             <mat-icon matSuffix>person</mat-icon>
-            <mat-error app-field-error-messages controlName="username">The username is
-              <strong>required</strong></mat-error>
+            <mat-error app-field-error-messages controlName="username">El nombre de usuario es
+              <strong>requerida</strong></mat-error>
           </mat-form-field>
         </div>
         <div class="form-field">
-          <label>Password</label>
+          <label>Contraseña</label>
           <mat-form-field appearance="outline">
-            <input type="password" matInput formControlName="password" placeholder="Enter your password"
+            <input type="password" matInput formControlName="password" placeholder="Ingrese la contraseña"
               class="form-control">
-            <mat-icon matSuffix>password</mat-icon>
-            <mat-error app-field-error-messages controlName="password">The password is
-              <strong>required</strong></mat-error>
+            <mat-icon matSuffix>visibility</mat-icon>
+            <mat-error app-field-error-messages controlName="password">La contraseña es
+              <strong>requerida</strong></mat-error>
           </mat-form-field>
         </div>
-        <button type="submit" [disabled]="form.invalid" mat-button class="primary-button">Sign In</button>
+        <button type="submit" [disabled]="form.invalid" class="primary-button">Ingresar</button>
       </form>
     </div>
-    <label class="forget-password">Forgot your password?</label>
-    <a routerLink="/auth/sign-up" class="create-account">Don't have an account? <span>Sign Up Here</span></a>
+    <label class="forget-password">¿Olvidaste tu contraseña?</label>
+    <a routerLink="/register" class="create-account">¿No tienes una cuenta? <span>Registrate aquí</span></a>
   </div>
   <div class="container-logo">
-    <img src="images/sign-in.svg" alt="Sign In" />
+    <img src="images/login.webp" alt="Sign In" class="non-selectable" draggable="false" />
   </div>
 </div>
