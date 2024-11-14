@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,14 +29,17 @@ export class RegisterComponent {
   private _formBuilder = inject(FormBuilder);
   private _router = inject(Router);
 
-  form: FormGroup = this._formBuilder.group({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    acceptTerms: new FormControl(false, Validators.requiredTrue)
-  });
+  form: FormGroup = this._formBuilder.group(
+    {
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required),
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      acceptTerms: new FormControl(false, Validators.requiredTrue)
+    },
+    { validators: this.passwordMatchValidator }
+  );
 
   passwordVisible: boolean = false;
   confirmPasswordVisible: boolean = false;
@@ -49,9 +52,33 @@ export class RegisterComponent {
     this.confirmPasswordVisible = !this.confirmPasswordVisible;
   }
 
+  // Modificamos el validador personalizado para marcar `confirmPassword` como inválido cuando las contraseñas no coinciden
+  passwordMatchValidator(form: AbstractControl): ValidationErrors | null {
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword');
+
+    if (password && confirmPassword?.value && password !== confirmPassword.value) {
+      confirmPassword.setErrors({ passwordMismatch: true });
+      return { passwordMismatch: true };
+    } else {
+      confirmPassword?.setErrors(null);
+      return null;
+    }
+  }
+
+  get passwordsDoNotMatch(): boolean {
+    return !!this.form.get('confirmPassword')?.hasError('passwordMismatch') && !!this.form.get('confirmPassword')?.touched;
+  }
+
   register(): void {
     if (this.form.invalid) {
-      this._snackBar.open('Por favor, completa todos los campos correctamente', 'Cerrar', {
+      let message = 'Por favor, completa todos los campos correctamente';
+
+      if (this.form.hasError('passwordMismatch')) {
+        message = 'Las contraseñas no coinciden';
+      }
+
+      this._snackBar.open(message, 'Cerrar', {
         duration: 3000,
         horizontalPosition: 'right',
         verticalPosition: 'top',
@@ -60,7 +87,6 @@ export class RegisterComponent {
     }
 
     console.log(this.form.value);
-
     this._router.navigate(['/login']);
   }
 }

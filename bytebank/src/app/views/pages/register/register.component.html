@@ -13,11 +13,17 @@
           <mat-form-field appearance="outline">
             <input matInput formControlName="email" placeholder="example@example.com" type="email">
             <mat-icon matSuffix>mail</mat-icon>
-            <mat-error *ngIf="form.get('email')?.hasError('required')">El correo electrónico es
-              <strong>requerido</strong>
+
+            <mat-error *ngIf="form.get('email')?.hasError('required')">
+              El correo electrónico es <strong>requerido</strong>
+            </mat-error>
+
+            <mat-error *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')">
+              El formato del correo es <strong>inválido</strong>
             </mat-error>
           </mat-form-field>
         </div>
+
 
         <div class="form-field">
           <label>Contraseña</label>
@@ -41,8 +47,10 @@
             <mat-icon matSuffix (click)="toggleConfirmPasswordVisibility()" style="cursor: pointer;">
               {{ confirmPasswordVisible ? 'visibility_off' : 'visibility' }}
             </mat-icon>
-            <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">La confirmación de la contraseña es
-              <strong>requerida</strong>
+            <mat-error *ngIf="passwordsDoNotMatch">Las contraseñas no coinciden</mat-error>
+            <mat-error
+              *ngIf="form.get('confirmPassword')?.hasError('required') && form.get('confirmPassword')?.touched">
+              La confirmación de la contraseña es <strong>requerida</strong>
             </mat-error>
           </mat-form-field>
         </div>
