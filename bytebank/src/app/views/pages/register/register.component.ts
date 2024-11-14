@@ -8,6 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '@services/auth.service';
+import { RegisterReq } from '@models/register-req.model'; // Asegúrate de importar correctamente la interfaz
 
 @Component({
   selector: 'app-register',
@@ -27,6 +29,7 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent {
   private _snackBar = inject(MatSnackBar);
   private _formBuilder = inject(FormBuilder);
+  private _authService = inject(AuthService);
   private _router = inject(Router);
 
   form: FormGroup = this._formBuilder.group(
@@ -34,6 +37,7 @@ export class RegisterComponent {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.required),
+      userName: new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
       acceptTerms: new FormControl(false, Validators.requiredTrue)
@@ -52,18 +56,14 @@ export class RegisterComponent {
     this.confirmPasswordVisible = !this.confirmPasswordVisible;
   }
 
-  // Modificamos el validador personalizado para marcar `confirmPassword` como inválido cuando las contraseñas no coinciden
   passwordMatchValidator(form: AbstractControl): ValidationErrors | null {
     const password = form.get('password')?.value;
-    const confirmPassword = form.get('confirmPassword');
-
-    if (password && confirmPassword?.value && password !== confirmPassword.value) {
-      confirmPassword.setErrors({ passwordMismatch: true });
+    const confirmPassword = form.get('confirmPassword')?.value;
+    if (password && confirmPassword && password !== confirmPassword) {
+      form.get('confirmPassword')?.setErrors({ passwordMismatch: true });
       return { passwordMismatch: true };
-    } else {
-      confirmPassword?.setErrors(null);
-      return null;
     }
+    return null;
   }
 
   get passwordsDoNotMatch(): boolean {
@@ -71,6 +71,15 @@ export class RegisterComponent {
   }
 
   register(): void {
+    if (!this.form.get('acceptTerms')?.value) {
+      this._snackBar.open('Debes aceptar los Términos y Condiciones para registrarte', 'Cerrar', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+      });
+      return;
+    }
+
     if (this.form.invalid) {
       let message = 'Por favor, completa todos los campos correctamente';
 
@@ -86,7 +95,27 @@ export class RegisterComponent {
       return;
     }
 
-    console.log(this.form.value);
-    this._router.navigate(['/login']);
+    const registerData: RegisterReq = {
+      username: this.form.get('userName')?.value,
+      password: this.form.get('password')?.value,
+      email: this.form.get('email')?.value,
+      firstName: this.form.get('firstName')?.value,
+      lastName: this.form.get('lastName')?.value,
+    };
+
+    this._authService.signUp(registerData).subscribe({
+      next: success => {
+        if (success) {
+          this._router.navigate(['/login']);
+        }
+      },
+      error: (error) => {
+        this._snackBar.open("Error al registrarse: " + error.error.message, 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top'
+        });
+      }
+    });
   }
 }

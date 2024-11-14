@@ -4,7 +4,6 @@
       <span>Regístrate a</span>
       <h1>ByteBank</h1>
     </div>
-    <p>Información Básica del Usuario</p>
     <div class="form-container">
       <form [formGroup]="form" (ngSubmit)="register()">
 
@@ -23,7 +22,6 @@
             </mat-error>
           </mat-form-field>
         </div>
-
 
         <div class="form-field">
           <label>Contraseña</label>
@@ -51,6 +49,17 @@
             <mat-error
               *ngIf="form.get('confirmPassword')?.hasError('required') && form.get('confirmPassword')?.touched">
               La confirmación de la contraseña es <strong>requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Usuario</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="userName" placeholder="Ingresa tu nombre de Usuario">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="form.get('userName')?.hasError('required')">El nombre de usuario es
+              <strong>requerido</strong>
             </mat-error>
           </mat-form-field>
         </div>
