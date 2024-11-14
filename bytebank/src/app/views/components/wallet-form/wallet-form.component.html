@@ -1,0 +1,135 @@
+<div class="form-container text-blue-950">
+  <div class="title text-left font-medium text-3xl pb-8">
+    <span>Crear Cartera</span>
+  </div>
+  <form [formGroup]="walletForm" (ngSubmit)="onSubmit()">
+    <div class="form-container2 max-sm:flex-col">
+      <div class="column flex flex-col gap-5 flex-1 font-medium">
+        <div class="flex flex-col gap-4">
+          <span>1. Nombre de la cartera</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="walletName" placeholder="Ingresa acá el dato" />
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>2. Tasa de Interés</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="interestRate" placeholder="Ingresa acá el dato" type="number" />
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>3. Tipo de Tasa de Interés</span>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="interestRateType" placeholder="Elija una opción">
+              <mat-option value="Efectiva">Efectiva</mat-option>
+              <mat-option value="Nominal">Nominal</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>4. Período de la Tasa</span>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="interestRatePeriod" placeholder="Elija una opción">
+              <mat-option value="Anual">Anual</mat-option>
+              <mat-option value="Semestral">Semestral</mat-option>
+              <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
+              <mat-option value="Trimestral">Trimestral</mat-option>
+              <mat-option value="Bimestral">Bimestral</mat-option>
+              <mat-option value="Mensual">Mensual</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>5. Período de Capitalización</span>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="capitalizationPeriod" placeholder="Elija una opción">
+              <mat-option value="Ninguno">Ninguno</mat-option>
+              <mat-option value="Anual">Anual</mat-option>
+              <mat-option value="Semestral">Semestral</mat-option>
+              <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
+              <mat-option value="Trimestral">Trimestral</mat-option>
+              <mat-option value="Bimestral">Bimestral</mat-option>
+              <mat-option value="Mensual">Mensual</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="column flex flex-col gap-5 flex-1 font-medium">
+        <div class="flex flex-col gap-4">
+          <span>6. Comisión de activación por letra</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="activationFee" placeholder="Ingresa acá el dato" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>7. Portes</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="portabilityFee" placeholder="Ingresa acá el dato" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>8. Porcentaje de Retención</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="retentionPercentage" placeholder="Ingresa acá el dato" type="number" />
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>9. Gastos de Administración</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="administrativeExpenses" placeholder="Ingresa acá el dato" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>10. Porcentaje de seguro de Degravamen</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="mortgageInsurance" placeholder="Ingresa acá el dato" type="number" />
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="column flex flex-col gap-5 flex-1 font-medium">
+        <div class="flex flex-col gap-4">
+          <span>11. Porcentaje de seguro de Riesgo</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="riskInsurance" placeholder="Ingresa acá el dato" type="number" />
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>12. Plazo de la operación</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="operationTerm" placeholder="Ingresa acá el dato" type="number" />
+            <span matTextSuffix>días</span>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span>13. Fecha de descuento</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="discountDate" [matDatepicker]="picker" placeholder="Ingresa una fecha" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center items-center">
+      <button class="custom-button w-3/12 max-sm:w-full mt-4" mat-raised-button color="primary" type="submit">AGREGAR</button>
+    </div>
+  </form>
+</div>

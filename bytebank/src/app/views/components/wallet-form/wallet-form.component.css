@@ -1,0 +1,25 @@
+.form-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.form-container2 {
+  display: flex;
+  gap: 20px;
+}
+
+.custom-button {
+  background-color: #0A2C3D !important;
+  color: #FFFFFF !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.custom-button:hover {
+  background-color: #FFFFFF !important;
+  color: #0A2C3D !important;
+}
+
