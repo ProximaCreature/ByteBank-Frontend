@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="container-sign-in">
+    <div class="header">
+      <span>Regístrate a</span>
+      <h1>ByteBank</h1>
+    </div>
+    <div class="form-container">
+      <form [formGroup]="form" (ngSubmit)="register()">
+
+        <div class="form-field">
+          <label>Correo Electrónico</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="email" placeholder="example@example.com" type="email">
+            <mat-icon matSuffix>mail</mat-icon>
+
+            <mat-error *ngIf="form.get('email')?.hasError('required')">
+              El correo electrónico es <strong>requerido</strong>
+            </mat-error>
+
+            <mat-error *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')">
+              El formato del correo es <strong>inválido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Contraseña</label>
+          <mat-form-field appearance="outline">
+            <input [type]="passwordVisible ? 'text' : 'password'" matInput formControlName="password"
+              placeholder="Ingresa una contraseña">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()" style="cursor: pointer;">
+              {{ passwordVisible ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+            <mat-error *ngIf="form.get('password')?.hasError('required')">La contraseña es
+              <strong>requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Confirmar Contraseña</label>
+          <mat-form-field appearance="outline">
+            <input [type]="confirmPasswordVisible ? 'text' : 'password'" matInput formControlName="confirmPassword"
+              placeholder="Vuelve a ingresar la contraseña">
+            <mat-icon matSuffix (click)="toggleConfirmPasswordVisibility()" style="cursor: pointer;">
+              {{ confirmPasswordVisible ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+            <mat-error *ngIf="passwordsDoNotMatch">Las contraseñas no coinciden</mat-error>
+            <mat-error
+              *ngIf="form.get('confirmPassword')?.hasError('required') && form.get('confirmPassword')?.touched">
+              La confirmación de la contraseña es <strong>requerida</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Usuario</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="userName" placeholder="Ingresa tu nombre de Usuario">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="form.get('userName')?.hasError('required')">El nombre de usuario es
+              <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Nombre</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="firstName" placeholder="Ingresa tu nombre">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="form.get('firstName')?.hasError('required')">El nombre es
+              <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Apellidos</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="lastName" placeholder="Ingresa tus apellidos">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="form.get('lastName')?.hasError('required')">Los apellidos son
+              <strong>requeridos</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field mt-1">
+          <label class="terms-label">
+            <input type="checkbox" formControlName="acceptTerms" class="terms-checkbox">
+            Acepto los <span class="terms-conditions">Términos y Condiciones</span> y la <span
+              class="terms-conditions">Política de Privacidad</span>
+          </label>
+          <div *ngIf="form.get('acceptTerms')?.invalid && form.get('acceptTerms')?.touched" class="error-message">
+            Debes aceptar los Términos y Condiciones
+          </div>
+        </div>
+
+
+        <button type="submit" [disabled]="form.invalid" class="primary-button">Registrarse</button>
+      </form>
+    </div>
+  </div>
+  <div class="container-logo">
+    <img src="images/register.webp" alt="Sign Up" class="non-selectable" draggable="false" />
+  </div>
+</div>
