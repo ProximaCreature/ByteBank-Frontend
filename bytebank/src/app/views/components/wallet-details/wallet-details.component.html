@@ -3,7 +3,7 @@
     @for(wallet of wallets; track wallet){
 
       <div class="content">
-        <div class="title mt-10 mb-10">
+        <div class="title mt-10 mb-10 text-blue-950">
           <h2>{{wallet.name}}</h2>
         </div>
         <div class="mb-16">
@@ -12,28 +12,24 @@
 
         <div class="summary w-96 pl-6 max-sm:max-w-64">
             <div class="summary-item">
-              <span class="label text-sm">TCEA</span>
-              <span class="value text-sm">{{wallet.tcea}}</span> <!-- Dato ejemplo -->
+              <span class="label text-sm text-blue-950">TCEA</span>
+              <span class="value text-sm text-blue-950">{{wallet.tcea}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
-              <span class="label text-sm">Valor Recibido Total</span>
-              <span class="value text-sm">{{wallet.received_value}}</span> <!-- Dato ejemplo -->
+              <span class="label text-sm text-blue-950">Valor Recibido</span>
+              <span class="value text-sm text-blue-950">{{wallet.receivedValue}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
-              <span class="label text-sm">Valor Nominal Total</span>
-              <span class="value text-sm">{{wallet.face_value}}</span> <!-- Dato ejemplo -->
+              <span class="label text-sm text-blue-950">Valor Entregado</span>
+              <span class="value text-sm text-blue-950">{{wallet.deliveredValue}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
-              <span class="label text-sm">Intereses Totales</span>
-              <span class="value text-sm">{{wallet.interests}}</span> <!-- Dato ejemplo -->
+              <span class="label text-sm text-blue-950">Fecha de descuento</span>
+              <span class="value text-sm text-blue-950">{{wallet.discountDate}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
-              <span class="label text-sm">Gastos Totales</span>
-              <span class="value text-sm">{{wallet.expenses}}</span> <!-- Dato ejemplo -->
-            </div>
-            <div class="summary-item">
-              <span class="label text-sm">Flujo de Efectivo Total</span>
-              <span class="value text-sm">{{wallet.cash_flow}}</span> <!-- Dato ejemplo -->
+              <span class="label text-sm text-blue-950">Fecha de vencimiento</span>
+              <span class="value text-sm text-blue-950">{{wallet.operationTerm}} días</span> <!-- Dato ejemplo -->
             </div>
         </div>
       </div>

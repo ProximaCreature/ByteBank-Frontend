@@ -34,10 +34,9 @@ const WALLETS = [
   {
     name: 'Cartera Alfa',
     tcea: '12.5%',
-    received_value: 150000,
-    face_value: 200000,
-    interests: 10000,
-    expenses: 5000,
-    cash_flow: 145000
+    receivedValue: 150000,
+    deliveredValue: 200000,
+    discountDate: '01/01/2023',
+    operationTerm: '120'
   }
 ];

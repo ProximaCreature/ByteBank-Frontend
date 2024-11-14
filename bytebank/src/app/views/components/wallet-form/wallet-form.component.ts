@@ -8,7 +8,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {WalletService} from '../../../services/wallet.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {Wallet} from '../../../model/wallet.model';
+import {Wallet} from '../../../models/wallet.model';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {WalletController} from '../../../controllers/wallet.controller';
 
@@ -66,7 +66,10 @@ export class WalletFormComponent {
         this.walletForm.value.mortgageInsurance,
         this.walletForm.value.riskInsurance,
         this.walletForm.value.operationTerm,
-        this.walletForm.value.discountDate
+        this.walletForm.value.discountDate,
+        null,
+        null,
+        null
       );
 
       this.walletController.postWallet(walletData).subscribe((response) => {

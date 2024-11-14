@@ -13,8 +13,11 @@ export class Wallet {
   riskInsurance: any;
   operationTerm: any;
   discountDate: any;
+  tcea: any;
+  receivedValue: any;
+  deliveredValue: any;
 
-  constructor(id: any, name: any, interestRate: any, interestType: any, interestPeriod: any, capitalizationPeriod: any, activationFee: any, portabilityFee: any, retentionPercentage: any, administrativeExpenses: any, mortgageInsurance: any, riskInsurance: any, operationTerm: any, discountDate: any) {
+  constructor(id: any, name: any, interestRate: any, interestType: any, interestPeriod: any, capitalizationPeriod: any, activationFee: any, portabilityFee: any, retentionPercentage: any, administrativeExpenses: any, mortgageInsurance: any, riskInsurance: any, operationTerm: any, discountDate: any, tcea: any, receivedValue: any, deliveredValue: any) {
     this.id = id;
     this.name = name;
     this.interestRate = interestRate;
@@ -29,5 +32,8 @@ export class Wallet {
     this.riskInsurance = riskInsurance;
     this.operationTerm = operationTerm;
     this.discountDate = discountDate;
+    this.tcea = tcea;
+    this.receivedValue = receivedValue;
+    this.deliveredValue = deliveredValue;
   }
 }

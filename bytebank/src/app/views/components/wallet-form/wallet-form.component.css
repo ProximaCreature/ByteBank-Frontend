@@ -6,6 +6,11 @@
   gap: 16px;
 }
 
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .form-container2 {
   display: flex;
   gap: 20px;

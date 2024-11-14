@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4a421db-d30e-43fe-8c0b-23f66134b153" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/bytebank/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/model/wallet.model.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/models/wallet.model.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/model/wallet.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/models/wallet.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-details/wallet-details.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-details/wallet-details.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-details/wallet-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-details/wallet-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-details/wallet-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-details/wallet-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/pages/wallet-details-page/wallet-details-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/pages/wallet-details-page/wallet-details-page.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/environment/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/environment/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +59,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CAMILA\UPC\Ciclo 6\Finanzas e ingenieria economica\Trabajo grupal\ByteBank-Frontend\bytebank\src\app\models" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -80,5 +90,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
