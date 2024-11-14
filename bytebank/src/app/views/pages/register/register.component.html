@@ -13,6 +13,9 @@
           <mat-form-field appearance="outline">
             <input matInput formControlName="email" placeholder="example@example.com" type="email">
             <mat-icon matSuffix>mail</mat-icon>
+            <mat-error *ngIf="form.get('email')?.hasError('required')">El correo electrónico es
+              <strong>requerido</strong>
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -24,6 +27,9 @@
             <mat-icon matSuffix (click)="togglePasswordVisibility()" style="cursor: pointer;">
               {{ passwordVisible ? 'visibility_off' : 'visibility' }}
             </mat-icon>
+            <mat-error *ngIf="form.get('password')?.hasError('required')">La contraseña es
+              <strong>requerida</strong>
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -35,6 +41,9 @@
             <mat-icon matSuffix (click)="toggleConfirmPasswordVisibility()" style="cursor: pointer;">
               {{ confirmPasswordVisible ? 'visibility_off' : 'visibility' }}
             </mat-icon>
+            <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">La confirmación de la contraseña es
+              <strong>requerida</strong>
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -43,6 +52,9 @@
           <mat-form-field appearance="outline">
             <input matInput formControlName="firstName" placeholder="Ingresa tu nombre">
             <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="form.get('firstName')?.hasError('required')">El nombre es
+              <strong>requerido</strong>
+            </mat-error>
           </mat-form-field>
         </div>
 
@@ -51,6 +63,9 @@
           <mat-form-field appearance="outline">
             <input matInput formControlName="lastName" placeholder="Ingresa tus apellidos">
             <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="form.get('lastName')?.hasError('required')">Los apellidos son
+              <strong>requeridos</strong>
+            </mat-error>
           </mat-form-field>
         </div>
 
