@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="container-sign-in">
+    <div class="header">
+      <span>Access to </span>
+      <h1>Guardian Area</h1>
+    </div>
+    <div class="form-container">
+      <form class="example-form" [formGroup]="form" (ngSubmit)="login()">
+        <div class="form-field">
+          <label>Username</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="username" placeholder="Enter a username" class="form-control">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error app-field-error-messages controlName="username">The username is
+              <strong>required</strong></mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-field">
+          <label>Password</label>
+          <mat-form-field appearance="outline">
+            <input type="password" matInput formControlName="password" placeholder="Enter your password"
+              class="form-control">
+            <mat-icon matSuffix>password</mat-icon>
+            <mat-error app-field-error-messages controlName="password">The password is
+              <strong>required</strong></mat-error>
+          </mat-form-field>
+        </div>
+        <button type="submit" [disabled]="form.invalid" mat-button class="primary-button">Sign In</button>
+      </form>
+    </div>
+    <label class="forget-password">Forgot your password?</label>
+    <a routerLink="/auth/sign-up" class="create-account">Don't have an account? <span>Sign Up Here</span></a>
+  </div>
+  <div class="container-logo">
+    <img src="images/sign-in.svg" alt="Sign In" />
+  </div>
+</div>
