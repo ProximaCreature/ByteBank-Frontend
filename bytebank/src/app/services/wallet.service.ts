@@ -12,4 +12,8 @@ export class WalletService {
   createWallet(wallet: any) {
     return this.http.post(this.baseUrl + '/wallets', wallet);
   }
+
+  getWalletByUserId(userId: number) {
+    return this.http.get(`${this.baseUrl}/wallets?userId=${userId}`);
+  }
 }

@@ -1,0 +1,43 @@
+.container {
+  height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.content {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 450;
+  margin: 0;
+}
+
+.custom-button {
+  background-color: #0A2C3D !important;
+  color: #FFFFFF !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.custom-button:hover {
+  background-color: #FFFFFF !important;
+  color: #0A2C3D !important;
+}
+
+.wallets-table-container {
+  overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+  .wallets-table {
+    max-width: 100%;
+  }
+}
+

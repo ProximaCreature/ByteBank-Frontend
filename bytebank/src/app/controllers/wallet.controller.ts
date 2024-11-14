@@ -11,4 +11,8 @@ export class WalletController {
   postWallet(wallet: any) {
     return this.walletService.createWallet(wallet);
   }
+
+  getUserWallet(id: number): Observable<any> {
+    return this.walletService.getWalletByUserId(id);
+  }
 }
