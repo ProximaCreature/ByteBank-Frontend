@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AuthRedirectGuard } from '@controllers/auth-redirect.guard';
 import { isAthenticatedGuard } from '@controllers/is-athenticated.guard';
+import {WalletListPageComponent} from './views/pages/wallet-list-page/wallet-list-page.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,7 @@ export const routes: Routes = [
       },
     ]
   },
+  {path: 'walletList/:id', component: WalletListPageComponent},
   {
     path: '**',
     redirectTo: '/login'

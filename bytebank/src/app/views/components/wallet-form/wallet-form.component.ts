@@ -34,6 +34,7 @@ export class WalletFormComponent {
 
   constructor(private fb: FormBuilder, private walletController: WalletController, private _snackBar: MatSnackBar) {
     this.walletForm = this.fb.group({
+      userId: ['', Validators.required],
       walletName: ['', Validators.required],
       interestRate: ['', Validators.required],
       interestRateType: ['', Validators.required],
@@ -54,6 +55,7 @@ export class WalletFormComponent {
     if (this.walletForm.valid) {
       const walletData = new Wallet(
         null,
+        1, // Reemplaza con el ID del usuario correspondiente
         this.walletForm.value.walletName,
         this.walletForm.value.interestRate,
         this.walletForm.value.interestRateType,
