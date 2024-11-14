@@ -42,7 +42,7 @@ export class LoginComponent {
           }
         },
         error: (error) => {
-          this._snackBar.open(error.error.message, 'Cerrar', {
+          this._snackBar.open("Usuario o contraseña incorrectas", 'Cerrar', {
             duration: 3000,
             horizontalPosition: 'right',
             verticalPosition: 'top'
