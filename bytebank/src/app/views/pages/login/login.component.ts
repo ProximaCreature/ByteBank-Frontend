@@ -27,6 +27,12 @@ export class LoginComponent {
     password: new FormControl<string>('', Validators.required),
   });
 
+  passwordVisible: boolean = false;
+
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
   login(): void {
     this._authService.signIn(this.form.value).subscribe(
       {
@@ -36,7 +42,7 @@ export class LoginComponent {
           }
         },
         error: (error) => {
-          this._snackBar.open(error.error.message, 'Close', {
+          this._snackBar.open(error.error.message, 'Cerrar', {
             duration: 3000,
             horizontalPosition: 'right',
             verticalPosition: 'top'

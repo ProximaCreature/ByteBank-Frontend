@@ -9,18 +9,20 @@
         <div class="form-field">
           <label>Nombre de Usuario</label>
           <mat-form-field appearance="outline">
-            <input matInput formControlName="username" placeholder="Ingres el usuario" class="form-control">
+            <input matInput formControlName="username" placeholder="Ingresa el usuario" class="form-control">
             <mat-icon matSuffix>person</mat-icon>
             <mat-error app-field-error-messages controlName="username">El nombre de usuario es
-              <strong>requerida</strong></mat-error>
+              <strong>requerido</strong></mat-error>
           </mat-form-field>
         </div>
         <div class="form-field">
           <label>Contraseña</label>
           <mat-form-field appearance="outline">
-            <input type="password" matInput formControlName="password" placeholder="Ingrese la contraseña"
-              class="form-control">
-            <mat-icon matSuffix>visibility</mat-icon>
+            <input [type]="passwordVisible ? 'text' : 'password'" matInput formControlName="password"
+              placeholder="Ingrese la contraseña" class="form-control">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()" style="cursor: pointer;">
+              {{ passwordVisible ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
             <mat-error app-field-error-messages controlName="password">La contraseña es
               <strong>requerida</strong></mat-error>
           </mat-form-field>
@@ -29,7 +31,7 @@
       </form>
     </div>
     <label class="forget-password">¿Olvidaste tu contraseña?</label>
-    <a routerLink="/register" class="create-account">¿No tienes una cuenta? <span>Registrate aquí</span></a>
+    <a routerLink="/register" class="create-account">¿No tienes una cuenta? <span>Regístrate aquí</span></a>
   </div>
   <div class="container-logo">
     <img src="images/login.webp" alt="Sign In" class="non-selectable" draggable="false" />
