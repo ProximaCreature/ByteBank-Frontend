@@ -1,1 +1,68 @@
-<p>register works!</p>
+<div class="container">
+  <div class="container-sign-in">
+    <div class="header">
+      <span>Regístrate a</span>
+      <h1>ByteBank</h1>
+    </div>
+    <p>Información Básica del Usuario</p>
+    <div class="form-container">
+      <form [formGroup]="form" (ngSubmit)="register()">
+
+        <div class="form-field">
+          <label>Correo Electrónico</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="email" placeholder="example@example.com" type="email">
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Contraseña</label>
+          <mat-form-field appearance="outline">
+            <input [type]="passwordVisible ? 'text' : 'password'" matInput formControlName="password"
+              placeholder="Ingresa una contraseña">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()" style="cursor: pointer;">
+              {{ passwordVisible ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Confirmar Contraseña</label>
+          <mat-form-field appearance="outline">
+            <input [type]="confirmPasswordVisible ? 'text' : 'password'" matInput formControlName="confirmPassword"
+              placeholder="Vuelve a ingresar la contraseña">
+            <mat-icon matSuffix (click)="toggleConfirmPasswordVisibility()" style="cursor: pointer;">
+              {{ confirmPasswordVisible ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Nombre</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="firstName" placeholder="Ingresa tu nombre">
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field">
+          <label>Apellidos</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="lastName" placeholder="Ingresa tus apellidos">
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <mat-checkbox formControlName="acceptTerms">
+          Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de Privacidad</a>
+        </mat-checkbox>
+
+        <button type="submit" [disabled]="form.invalid" class="primary-button">Registrarse</button>
+      </form>
+    </div>
+  </div>
+  <div class="container-logo">
+    <img src="images/register.webp" alt="Registrarse" class="non-selectable" draggable="false" />
+  </div>
+</div>
