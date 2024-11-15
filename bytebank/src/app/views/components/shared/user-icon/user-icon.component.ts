@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 export class UserIconComponent {
   @Input() width: string = '40px';
   @Input() height: string = '40px';
-  @Input() fillColor: string = '#000000';
+  @Input() fillColor: string = '#02273A';
 }

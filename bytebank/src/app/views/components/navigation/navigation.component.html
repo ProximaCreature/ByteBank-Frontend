@@ -1,21 +1,55 @@
 <header class="header">
-  <div class="header-container">
-    <button mat-icon-button class="menu-button" (click)="toggleMenu()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <div class="logo-container">
-      <img src="assets/logo.png" alt="ByteBank Logo" class="logo" />
-      <span class="logo-text">ByteBank</span>
+  <div class="header-container flex items-center justify-between px-4 py-2">
+    <!-- Menú de hamburguesa y logo -->
+    <div class="flex items-center gap-4">
+      <button mat-icon-button class="self-center" (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <!-- Logo y nombre de la app -->
+      <div class="flex items-center gap-2">
+        <app-logo width="40px" height="40px" fillColor="#fff"></app-logo>
+        <span class="logo-text text-primary font-bold text-xl">ByteBank</span>
+      </div>
     </div>
-    <div class="user-icon">
-      <mat-icon>account_circle</mat-icon>
+
+    <!-- Ícono de usuario -->
+    <div class="flex items-center">
+      <app-user-icon width="25px" height="25px"></app-user-icon>
     </div>
   </div>
-  <nav *ngIf="menuOpen" class="menu">
-    <ul>
-      <li><a routerLink="/dashboard">Carteras</a></li>
-      <li><a routerLink="/add-invoices">Agregar Facturas y Letras</a></li>
-      <li><a routerLink="/out-of-date-payments">Pagos fuera de fecha</a></li>
+
+  <!-- Menú desplegable -->
+  <nav *ngIf="menuOpen" class="menu bg-white rounded-lg shadow-lg mt-2 p-4 absolute z-10 w-64">
+    <span class="text-gray-500 font-semibold mb-4 block">Dashboards</span>
+    <ul class="flex flex-col gap-2">
+      <li>
+        <a
+          routerLink="/dashboard"
+          class="menu-item flex items-center gap-3 p-2 rounded-lg hover:bg-primary hover:text-white"
+        >
+          <app-wallet-icon width="25px" height="25px"></app-wallet-icon>
+          Carteras
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/add-invoices"
+          class="menu-item flex items-center gap-3 p-2 rounded-lg hover:bg-primary hover:text-white"
+        >
+          <app-add-icon width="25px" height="25px"></app-add-icon>
+          Agregar Facturas y Letras
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/out-of-date-payments"
+          class="menu-item flex items-center gap-3 p-2 rounded-lg hover:bg-primary hover:text-white"
+        >
+          <app-payment-icon width="25px" height="25px"></app-payment-icon>
+          Pagos fuera de fecha
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
