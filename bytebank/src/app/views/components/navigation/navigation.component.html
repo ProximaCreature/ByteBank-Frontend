@@ -6,20 +6,19 @@
         <mat-icon>menu</mat-icon>
       </button>
 
-      <!-- Logo y nombre de la app -->
       <div class="flex items-center gap-2">
         <app-logo width="40px" height="40px" fillColor="#fff"></app-logo>
         <span class="logo-text text-primary font-bold text-xl">ByteBank</span>
       </div>
     </div>
 
-    <!-- Ícono de usuario -->
     <div class="flex items-center">
-      <app-user-icon width="25px" height="25px"></app-user-icon>
+      <button mat-button class="flex items-center gap-2" (click)="toggleProfile()">
+        <app-user-icon width="25px" height="25px"></app-user-icon>
+      </button>
     </div>
   </div>
 
-  <!-- Menú desplegable -->
   <nav *ngIf="menuOpen" class="menu bg-white rounded-lg shadow-lg mt-1 p-4 absolute z-10 w-64">
     <span class="text-primary font-semibold mb-4 block">Dashboards</span>
     <ul class="flex flex-col gap-2">
@@ -40,4 +39,16 @@
       </li>
     </ul>
   </nav>
+
+  <div *ngIf="profileOpen" class="profile-menu bg-white rounded-lg shadow-lg mt-1 p-4 absolute z-10 w-64 right-0">
+    <span class="text-primary font-semibold mb-4 block">Perfil</span>
+    <ul class="flex flex-col gap-2">
+      <li>
+        <button (click)="logOut()"
+          class="logout-btn">
+          Cerrar sesión
+        </button>
+      </li>
+    </ul>
+  </div>
 </header>
