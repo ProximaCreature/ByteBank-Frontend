@@ -74,26 +74,14 @@ export class WalletFormComponent {
           this._snackBar.open('Cartera creada', 'Cerrar', {
             duration: 2000,
           });
-        },
+          },
         (error) => {
           console.error('Error al crear la cartera:', error);
           this._snackBar.open('Error al crear la cartera', 'Cerrar', {
             duration: 2000,
           });
-        });
-      console.log('Formulario válido:', this.walletForm.value);
-    } else {
-      console.log('Formulario inválido');
-      this.printFormErrors();
+        }
+      );
     }
-  }
-
-  printFormErrors() {
-    Object.keys(this.walletForm.controls).forEach(key => {
-      const controlErrors = this.walletForm.get(key)?.errors;
-      if (controlErrors) {
-        console.log(`Error en el campo ${key}:`, controlErrors);
-      }
-    });
   }
 }
