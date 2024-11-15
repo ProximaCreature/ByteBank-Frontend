@@ -25,6 +25,27 @@
   padding: 1rem;
 }
 
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: all 300ms;
+
+  &:hover {
+    color: #fff;
+    background-color: var(--primary-color);
+
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
 .menu ul {
   list-style: none;
   padding: 0;
@@ -33,12 +54,6 @@
 
 .menu li {
   margin: 0.5rem 0;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
 }
 
 .avatar {
