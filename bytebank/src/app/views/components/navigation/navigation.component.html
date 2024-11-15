@@ -1,0 +1,53 @@
+<header class="header">
+  <div class="header-container flex items-center justify-between px-4 py-2">
+    <div class="flex items-center gap-4">
+      <button mat-icon-button class="self-center" (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <app-logo width="40px" height="40px" fillColor="#fff"></app-logo>
+        <span class="logo-text text-primary font-bold text-xl">ByteBank</span>
+      </div>
+    </div>
+
+    <div class="flex items-center">
+      <button mat-button class="flex items-center gap-2" (click)="toggleProfile()">
+        <app-user-icon width="25px" height="25px"></app-user-icon>
+      </button>
+    </div>
+  </div>
+
+  <nav *ngIf="menuOpen" class="menu bg-white rounded-lg shadow-lg mt-1 p-4 absolute z-10 w-64">
+    <span class="text-primary font-semibold mb-4 block">Dashboards</span>
+    <ul class="flex flex-col gap-2">
+      <li>
+        <a routerLink="/addWallet" class="menu-item group">
+          Carteras
+        </a>
+      </li>
+      <li>
+        <a routerLink="/addWallet" class="menu-item group">
+          Agregar Facturas y Letras
+        </a>
+      </li>
+      <li>
+        <a routerLink="/addWallet" class="menu-item group">
+          Pagos fuera de fecha
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div *ngIf="profileOpen" class="profile-menu bg-white rounded-lg shadow-lg mt-1 p-4 absolute z-10 w-64 right-0">
+    <span class="text-primary font-semibold mb-4 block">Perfil</span>
+    <ul class="flex flex-col gap-2">
+      <li>
+        <button (click)="logOut()"
+          class="logout-btn">
+          Cerrar sesión
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
