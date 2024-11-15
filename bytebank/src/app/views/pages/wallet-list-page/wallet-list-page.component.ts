@@ -64,14 +64,13 @@ export class WalletListPageComponent implements AfterViewInit{
   }
   //getUserWallet(id: number)
   getWallets() {
-    const userId = 1; // Reemplaza con el ID del usuario correspondiente
+    const userId = 2; // Reemplaza con el ID del usuario correspondiente
     this.walletController.getUserWallet(userId).subscribe(
       res => {
         if (Array.isArray(res)) {
           const walletData: Wallet[] = res.map((wallet: any) => new Wallet(wallet.id, wallet.userId,
-            wallet.name, wallet.interestRate,  wallet.interestType, wallet.interestPeriod, wallet.capitalizationPeriod,
-            wallet.activationFee, wallet.portabilityFee, wallet.retentionPercentage, wallet.administrativeExpenses, wallet.mortgageInsurance,
-            wallet.riskInsurance, wallet.operationTerm, wallet.discountDate, wallet.tcea, wallet.receivedValue, wallet.deliveredValue));
+            wallet.nombreCartera, wallet.plazoOperacion,  wallet.fechaDescuento, wallet.tcea, wallet.valorRecibido,
+            wallet.valorEntregado));
 
           this.dataSource.data = walletData;
         } else {

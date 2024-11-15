@@ -38,9 +38,12 @@ export const routes: Routes = [
         path: 'addWallet',
         loadComponent: () => import('./views/pages/wallet-creation-page/wallet-creation-page.component').then(m => m.WalletCreationPageComponent),
       },
+      {
+        path: 'walletList/:id',
+        loadComponent: () => import('./views/pages/wallet-list-page/wallet-list-page.component').then(m => m.WalletListPageComponent),
+      }
     ]
   },
-  {path: 'walletList/:id', component: WalletListPageComponent},
   {
     path: '**',
     redirectTo: '/login'

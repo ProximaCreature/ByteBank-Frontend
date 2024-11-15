@@ -38,7 +38,7 @@ export class WalletBillsTableComponent implements AfterViewInit {
     this.billController.getWalletBill(walletId).subscribe(
       res => {
         if (Array.isArray(res)) {
-          const billData: Bill[] = res.map((bill: any) => new Bill(bill.id, bill.walletId, bill.name, bill.faceValue, bill.signatureDate));
+          const billData: Bill[] = res.map((bill: any) => new Bill(bill.id, bill.walletId, bill.name, bill.faceValue, bill.expirationDate, bill.currency));
           this.dataSource.data = billData;
         } else {
           console.error('Response is not an array');

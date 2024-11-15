@@ -10,10 +10,10 @@ export class WalletService {
   constructor(private http: HttpClient) { }
 
   createWallet(wallet: any) {
-    return this.http.post(this.baseUrl + '/wallets', wallet);
+    return this.http.post(this.baseUrl + 'wallets', wallet);
   }
 
   getWalletByUserId(userId: number) {
-    return this.http.get(`${this.baseUrl}/wallets?userId=${userId}`);
+    return this.http.get(`${this.baseUrl}wallets?userId=${userId}`);
   }
 }

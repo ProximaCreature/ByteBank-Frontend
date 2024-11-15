@@ -3,13 +3,15 @@ export class Bill {
   walletId: any;
   name: any;
   faceValue: any;
-  signatureDate: any;
+  expirationDate: any;
+  currency: any;
 
-  constructor(id: any, walletId: any, name : any, faceValue: any, signatureDate: any) {
+  constructor(id: any, walletId: any, name : any, faceValue: any, signatureDate: any, currency: any) {
     this.id = id;
     this.walletId = walletId;
     this.name = name;
     this.faceValue = faceValue;
-    this.signatureDate = signatureDate;
+    this.expirationDate = signatureDate;
+    this.currency = currency;
   }
 }

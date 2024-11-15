@@ -34,7 +34,6 @@ export class WalletFormComponent {
 
   constructor(private fb: FormBuilder, private walletController: WalletController, private _snackBar: MatSnackBar) {
     this.walletForm = this.fb.group({
-      userId: ['', Validators.required],
       walletName: ['', Validators.required],
       interestRate: ['', Validators.required],
       interestRateType: ['', Validators.required],
@@ -47,32 +46,28 @@ export class WalletFormComponent {
       mortgageInsurance: ['', Validators.required],
       riskInsurance: ['', Validators.required],
       operationTerm: ['', Validators.required],
-      discountDate: ['', Validators.required]
+      discountDate: ['', Validators.required],
+      paymentOutOfDate: [false]
     });
   }
 
   onSubmit() {
     if (this.walletForm.valid) {
-      const walletData = new Wallet(
-        null,
-        1, // Reemplaza con el ID del usuario correspondiente
-        this.walletForm.value.walletName,
-        this.walletForm.value.interestRate,
-        this.walletForm.value.interestRateType,
-        this.walletForm.value.interestRatePeriod,
-        this.walletForm.value.capitalizationPeriod,
-        this.walletForm.value.activationFee,
-        this.walletForm.value.portabilityFee,
-        this.walletForm.value.retentionPercentage,
-        this.walletForm.value.administrativeExpenses,
-        this.walletForm.value.mortgageInsurance,
-        this.walletForm.value.riskInsurance,
-        this.walletForm.value.operationTerm,
-        this.walletForm.value.discountDate,
-        null,
-        null,
-        null
-      );
+      const walletData = {
+        nombreCartera: this.walletForm.value.name,
+        tasaInteres: this.walletForm.value.interestRate,
+        tipoTasaInteres: this.walletForm.value.interestRateType,
+        periodoTasa: this.walletForm.value.interestRatePeriod,
+        periodoCapitalizacion: this.walletForm.value.capitalizationPeriod,
+        comisionActivacionPorLetra: this.walletForm.value.activationFee,
+        portes: this.walletForm.value.portabilityFee,
+        porcentajeRetencion: this.walletForm.value.retentionPercentage,
+        gastosAdministracion: this.walletForm.value.administrativeExpenses,
+        porcentajeSeguroDegravamen: this.walletForm.value.mortgageInsurance,
+        porcentajeSeguroRiesgo: this.walletForm.value.riskInsurance,
+        plazoOperacion: this.walletForm.value.operationTerm,
+        fechaDescuento: this.walletForm.value.discountDate,
+      };
 
       this.walletController.postWallet(walletData).subscribe((response) => {
           console.log('Cartera creada:', response);

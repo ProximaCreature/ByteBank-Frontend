@@ -32,11 +32,11 @@ export class WalletDetailsComponent {
 
 const WALLETS = [
   {
-    name: 'Cartera Alfa',
-    tcea: '12.5%',
-    receivedValue: 150000,
-    deliveredValue: 200000,
-    discountDate: '01/01/2023',
-    operationTerm: '120'
+    nombreCartera: 'Cartera Alfa',
+    tcea: 12.5,
+    valorRecibido: 150000,
+    valorEntregado: 200000,
+    fechaDescuento: '01/01/2023',
+    plazoOperacion: 120
   }
 ];
