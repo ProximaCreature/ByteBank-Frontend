@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { LogoComponent } from '../shared/logo/logo.component';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +10,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     MatIconModule,
     MatButtonModule,
-    CommonModule
+    CommonModule,
+    LogoComponent
   ],
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
