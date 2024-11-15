@@ -1,0 +1,67 @@
+.header {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.menu-button {
+  margin-right: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.user-icon {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin: 0.5rem 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
