@@ -21,26 +21,20 @@
 
   <!-- Menú desplegable -->
   <nav *ngIf="menuOpen" class="menu bg-white rounded-lg shadow-lg mt-1 p-4 absolute z-10 w-64">
-    <span class="text-primary-500 font-semibold mb-4 block">Dashboards</span>
+    <span class="text-primary font-semibold mb-4 block">Dashboards</span>
     <ul class="flex flex-col gap-2">
       <li>
-        <a routerLink="/dashboard"
-          class="menu-item">
-          <app-wallet-icon width="25px" height="25px"></app-wallet-icon>
+        <a routerLink="/dashboard" class="menu-item group">
           Carteras
         </a>
       </li>
       <li>
-        <a routerLink="/add-invoices"
-          class="menu-item">
-          <app-add-icon width="25px" height="25px"></app-add-icon>
+        <a routerLink="/add-invoices" class="menu-item group">
           Agregar Facturas y Letras
         </a>
       </li>
       <li>
-        <a routerLink="/out-of-date-payments"
-          class="menu-item">
-          <app-payment-icon width="25px" height="25px"></app-payment-icon>
+        <a routerLink="/out-of-date-payments" class="menu-item group">
           Pagos fuera de fecha
         </a>
       </li>
