@@ -64,7 +64,7 @@ export class WalletListPageComponent implements AfterViewInit{
   }
   //getUserWallet(id: number)
   getWallets() {
-    const userId = 2; // Reemplaza con el ID del usuario correspondiente
+    const userId = 3; // Reemplaza con el ID del usuario correspondiente
     this.walletController.getUserWallet(userId).subscribe(
       res => {
         if (Array.isArray(res)) {

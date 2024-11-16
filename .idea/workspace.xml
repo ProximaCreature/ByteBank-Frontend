@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c4a421db-d30e-43fe-8c0b-23f66134b153" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/wallet-form/wallet-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/services/wallet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/services/wallet.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/navigation/navigation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/pages/wallet-list-page/wallet-list-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/pages/wallet-list-page/wallet-list-page.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,11 @@
       <workItem from="1731614104128" duration="693000" />
       <workItem from="1731626790399" duration="2502000" />
       <workItem from="1731629340387" duration="789000" />
-      <workItem from="1731635473110" duration="922000" />
+      <workItem from="1731635473110" duration="1086000" />
+      <workItem from="1731636998781" duration="643000" />
+      <workItem from="1731690266960" duration="5035000" />
+      <workItem from="1731731294678" duration="1292000" />
+      <workItem from="1731758969599" duration="4223000" />
     </task>
     <servers />
   </component>
