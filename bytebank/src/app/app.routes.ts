@@ -31,7 +31,7 @@ export const routes: Routes = [
     canActivateChild: [isAthenticatedGuard],
     children: [
       {
-        path: 'walletDetail/:id',
+        path: 'walletDetail/:username',
         loadComponent: () => import('./views/pages/wallet-details-page/wallet-details-page.component').then(m => m.WalletDetailsPageComponent),
       },
       {
@@ -39,7 +39,7 @@ export const routes: Routes = [
         loadComponent: () => import('./views/pages/wallet-creation-page/wallet-creation-page.component').then(m => m.WalletCreationPageComponent),
       },
       {
-        path: 'walletList/:id',
+        path: 'walletList',
         loadComponent: () => import('./views/pages/wallet-list-page/wallet-list-page.component').then(m => m.WalletListPageComponent),
       }
     ]

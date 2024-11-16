@@ -5,20 +5,23 @@ import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MatSort, MatSortModule} from "@angular/material/sort";
 import {Bill} from '../../../models/bill.model';
 import {BillController} from '../../../controllers/bill.controller';
+import {ActivatedRoute} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-wallet-bills-table',
   standalone: true,
-    imports: [
-      MatTableModule,
-      MatPaginatorModule,
-      MatSortModule
-    ],
+  imports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    DatePipe
+  ],
   templateUrl: './wallet-bills-table.component.html',
   styleUrl: './wallet-bills-table.component.css'
 })
 export class WalletBillsTableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['position', 'name', 'face_value', 'signature_date'];
+  displayedColumns: string[] = ['name', 'face_value', 'signature_date'];
   dataSource = new MatTableDataSource<Bill>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -30,15 +33,15 @@ export class WalletBillsTableComponent implements AfterViewInit {
     this.getBills();
   }
 
-  constructor(private billController: BillController) {
+  constructor(private billController: BillController, private route: ActivatedRoute) {
   }
 
   getBills() {
-    const walletId = 1; // Reemplaza con el ID de la cartera correspondiente
+    const walletId = this.route.snapshot.paramMap.get('username');
     this.billController.getWalletBill(walletId).subscribe(
       res => {
-        if (Array.isArray(res)) {
-          const billData: Bill[] = res.map((bill: any) => new Bill(bill.id, bill.walletId, bill.name, bill.faceValue, bill.expirationDate, bill.currency));
+        if (res && Array.isArray(res.bills)) {
+          const billData: Bill[] = res.bills.map((bill: any) => new Bill(bill.id, bill.walletId, bill.name, bill.faceValue, bill.expirationDate, bill.currency));
           this.dataSource.data = billData;
         } else {
           console.error('Response is not an array');

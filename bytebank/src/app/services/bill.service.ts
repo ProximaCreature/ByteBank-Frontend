@@ -14,6 +14,6 @@ export class BillService {
     const headers = {
       Authorization: `Bearer ${this.authService.token}`
     }
-    return this.http.get(`${this.baseUrl}/bills?walletId=${walletId}`, { headers });
+    return this.http.get(`${this.baseUrl}/wallets/${walletId}`, { headers });
   }
 }

@@ -12,7 +12,7 @@ import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
 import {MatButton} from '@angular/material/button';
 import {Wallet} from '../../../models/wallet.model';
 import {WalletController} from '../../../controllers/wallet.controller';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-wallet-list-page',
@@ -60,7 +60,7 @@ export class WalletListPageComponent implements AfterViewInit{
     }
   }
 
-  constructor(private walletController: WalletController) {
+  constructor(private walletController: WalletController, private router: Router) {
   }
   //getUserWallet(id: number)
   getWallets() {
@@ -81,6 +81,10 @@ export class WalletListPageComponent implements AfterViewInit{
         console.log(error);
       }
     );
+  }
+
+  getRow(row: any){
+    this.router.navigateByUrl(`/walletDetail/${row.nombreCartera}`);
   }
 }
 

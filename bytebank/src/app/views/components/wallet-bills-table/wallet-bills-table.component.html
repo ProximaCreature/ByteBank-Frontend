@@ -1,10 +1,6 @@
 <div class="invoices-table-container">
   <div class="invoices-table pl-6 max-sm:pl-0">
     <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -15,7 +11,7 @@
       </ng-container>
       <ng-container matColumnDef="signature_date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de firma </th>
-        <td mat-cell *matCellDef="let element"> {{element.expirationDate}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.expirationDate | date:'dd/MM/yyyy'}} </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

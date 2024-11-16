@@ -6,11 +6,10 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
-import {WalletService} from '../../../services/wallet.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {Wallet} from '../../../models/wallet.model';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {WalletController} from '../../../controllers/wallet.controller';
+import {AuthService} from '@services/auth.service';
 
 @Component({
   selector: 'app-wallet-form',
@@ -32,7 +31,7 @@ import {WalletController} from '../../../controllers/wallet.controller';
 export class WalletFormComponent {
   walletForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private walletController: WalletController, private _snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private walletController: WalletController, private _snackBar: MatSnackBar, private _authService: AuthService) {
     this.walletForm = this.fb.group({
       walletName: ['', Validators.required],
       interestRate: ['', Validators.required],
@@ -53,7 +52,9 @@ export class WalletFormComponent {
 
   onSubmit() {
     if (this.walletForm.valid) {
+      const username = this._authService.username;
       const walletData = {
+        username: username,
         nombreCartera: this.walletForm.value.walletName,
         tasaInteres: this.walletForm.value.interestRate,
         tipoTasaInteres: this.walletForm.value.interestRateType,

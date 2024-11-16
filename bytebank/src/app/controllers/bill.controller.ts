@@ -8,7 +8,7 @@ import {BillService} from '../services/bill.service';
 export class BillController {
   constructor(private billService : BillService) {}
 
-  getWalletBill(id: number): Observable<any> {
+  getWalletBill(id: any): Observable<any> {
     return this.billService.getByWalletId(id);
   }
 }

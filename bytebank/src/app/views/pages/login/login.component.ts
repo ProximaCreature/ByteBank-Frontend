@@ -38,7 +38,7 @@ export class LoginComponent {
       {
         next: success => {
           if (success) {
-            this._router.navigate(['/addWallet']);
+            this._router.navigate([`/walletList`]);
           }
         },
         error: (error) => {

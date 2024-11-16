@@ -1,9 +1,7 @@
 <mat-sidenav-container class="container">
   <mat-sidenav-content>
-    @for(wallet of wallets; track wallet){
-
       <div class="content">
-        <div class="title mt-10 mb-10 text-blue-950">
+        <div class="title mt-4 mb-10 text-blue-950">
           <h2>{{wallet.nombreCartera}}</h2>
         </div>
         <div class="mb-16">
@@ -13,19 +11,19 @@
         <div class="summary w-96 pl-6 max-sm:max-w-64">
             <div class="summary-item">
               <span class="label text-sm text-blue-950">TCEA</span>
-              <span class="value text-sm text-blue-950">{{wallet.tcea}} %</span> <!-- Dato ejemplo -->
+              <span class="value text-sm text-blue-950">{{wallet.tcea | percent:'1.7-7'}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
               <span class="label text-sm text-blue-950">Valor Recibido</span>
-              <span class="value text-sm text-blue-950">{{wallet.valorRecibido}}</span> <!-- Dato ejemplo -->
+              <span class="value text-sm text-blue-950">{{wallet.valorRecibido | number:'1.2-2'}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
               <span class="label text-sm text-blue-950">Valor Entregado</span>
-              <span class="value text-sm text-blue-950">{{wallet.valorEntregado}}</span> <!-- Dato ejemplo -->
+              <span class="value text-sm text-blue-950">{{wallet.valorEntregado | number:'1.2-2'}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
               <span class="label text-sm text-blue-950">Fecha de descuento</span>
-              <span class="value text-sm text-blue-950">{{wallet.fechaDescuento}}</span> <!-- Dato ejemplo -->
+              <span class="value text-sm text-blue-950">{{wallet.fechaDescuento | date:'dd/MM/yyyy'}}</span> <!-- Dato ejemplo -->
             </div>
             <div class="summary-item">
               <span class="label text-sm text-blue-950">Fecha de vencimiento</span>
@@ -33,6 +31,5 @@
             </div>
         </div>
       </div>
-    }
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,42 +1,51 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {
-  MatCell,
-  MatCellDef,
-  MatColumnDef,
-  MatHeaderCell,
-  MatHeaderRow,
-  MatHeaderRowDef,
-  MatRow, MatRowDef, MatTable, MatTableDataSource, MatTableModule
-} from "@angular/material/table";
-import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
-import {MatSidenavContainer, MatSidenavContent, MatSidenavModule} from "@angular/material/sidenav";
-import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
-import {BillService} from '../../../services/bill.service';
-import {Bill} from '../../../models/bill.model';
+import {Component} from '@angular/core';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {BillController} from '@controllers/bill.controller';
+import {ActivatedRoute} from '@angular/router';
+import {Wallet} from '@models/wallet.model';
+import {DatePipe, DecimalPipe, PercentPipe} from '@angular/common';
 
 @Component({
   selector: 'app-wallet-details',
   standalone: true,
-    imports: [
-      MatSidenavModule
-    ],
+  imports: [
+    MatSidenavModule,
+    DecimalPipe,
+    DatePipe,
+    PercentPipe
+  ],
   templateUrl: './wallet-details.component.html',
   styleUrl: './wallet-details.component.css'
 })
 export class WalletDetailsComponent {
-  wallets = WALLETS;
+  wallet: any = {};
 
-  constructor() {
+  constructor(private billController: BillController, private route: ActivatedRoute) {
+    this.getWallet()
+  }
+
+  getWallet() {
+    const walletId = this.route.snapshot.paramMap.get('username');
+    this.billController.getWalletBill(walletId).subscribe(
+      res => {
+        if (res) {
+          this.wallet = new Wallet(
+            res.id,
+            res.userId,
+            res.nombreCartera,
+            res.plazoOperacion,
+            res.fechaDescuento,
+            res.tcea,
+            res.valorRecibido,
+            res.valorEntregado
+          );
+        } else {
+          console.error('Response is empty');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
-
-const WALLETS = [
-  {
-    nombreCartera: 'Cartera Alfa',
-    tcea: 12.5,
-    valorRecibido: 150000,
-    valorEntregado: 200000,
-    fechaDescuento: '01/01/2023',
-    plazoOperacion: 120
-  }
-];
