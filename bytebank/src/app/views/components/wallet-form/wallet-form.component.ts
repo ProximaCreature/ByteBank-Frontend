@@ -54,7 +54,7 @@ export class WalletFormComponent {
   onSubmit() {
     if (this.walletForm.valid) {
       const walletData = {
-        nombreCartera: this.walletForm.value.name,
+        nombreCartera: this.walletForm.value.walletName,
         tasaInteres: this.walletForm.value.interestRate,
         tipoTasaInteres: this.walletForm.value.interestRateType,
         periodoTasa: this.walletForm.value.interestRatePeriod,
