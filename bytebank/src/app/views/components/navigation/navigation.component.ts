@@ -25,6 +25,10 @@ export class NavigationComponent {
   menuOpen = false;
   profileOpen = false;
 
+  get username(): string {
+    return this.authService.username;
+  }
+
   constructor(private authService: AuthService, private router: Router) { }
 
   toggleMenu() {
