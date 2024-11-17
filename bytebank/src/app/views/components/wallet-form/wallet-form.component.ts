@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { WalletController } from '../../../controllers/wallet.controller';
 import { AuthService } from '@services/auth.service';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { WalletReq } from '@models/wallet-req.model';
 
@@ -38,7 +39,8 @@ export class WalletFormComponent {
     private fb: FormBuilder,
     private walletController: WalletController,
     private _snackBar: MatSnackBar,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private router: Router
   ) {
     this.walletForm = this.fb.group({
       walletName: ['', Validators.required],
@@ -151,14 +153,13 @@ export class WalletFormComponent {
         PeriodoCapitalizaciondeTasaMoratoria: this.walletForm.value.moratoriumCapitalizationPeriod || 'Ninguno',
       };
 
-      console.log('Cartera a crear:', walletReq);
-
       this.walletController.postWallet(walletReq).subscribe({
         next: (response) => {
-          console.log('Cartera creada:', response);
+          this.walletForm.reset();
           this._snackBar.open('Cartera creada', 'Cerrar', {
             duration: 2000,
           });
+          this.router.navigate(['/walletList']);
         },
         error: (error) => {
           console.error('Error al crear la cartera:', error);
