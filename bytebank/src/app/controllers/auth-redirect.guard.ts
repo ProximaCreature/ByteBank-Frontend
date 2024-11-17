@@ -13,7 +13,7 @@ export class AuthRedirectGuard implements CanActivate {
 
     // !Esta es la ruta base al que se redirigirá
     if (token) {
-      this.router.navigate(['/addWallet']);
+      this.router.navigate(['/walletList']);
       return false;
     }
     return true;
