@@ -62,7 +62,6 @@ export class WalletFormComponent {
       moratoriumCapitalizationPeriod: [{ value: '', disabled: true }, Validators.required],
     });
 
-    // Escucha los cambios del checkbox y activa/desactiva los campos adicionales
     this.walletForm.get('paymentOutOfDate')?.valueChanges.subscribe((checked) => {
       if (checked) {
         this.enableOverdueFields();
