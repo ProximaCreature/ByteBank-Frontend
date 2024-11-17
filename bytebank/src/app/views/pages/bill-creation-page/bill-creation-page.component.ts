@@ -15,6 +15,8 @@ import { WalletController } from '@controllers/wallet.controller';
 import { AuthService } from '@services/auth.service';
 import { CreateBillCommand } from '@models/create-bill-command.model';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-bill-creation-page',
@@ -29,6 +31,7 @@ import { ActivatedRoute } from '@angular/router';
     MatDatepickerModule,
     MatOptionModule,
     MatSelectModule,
+
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './bill-creation-page.component.html',
@@ -46,7 +49,8 @@ export class BillCreationPageComponent implements OnInit {
     private billController: BillController,
     private authService: AuthService,
     private _snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
     this.billForm = this.fb.group({
       walletName: ['', Validators.required],
@@ -90,8 +94,11 @@ export class BillCreationPageComponent implements OnInit {
 
   onSubmit(): void {
     if (this.billForm.valid) {
+      const walletName =
+        this.billForm.get('walletName')?.value || this.route.snapshot.paramMap.get('walletName');
+
       const command: CreateBillCommand = new CreateBillCommand(
-        this.billForm.value.walletName,
+        walletName!,
         this.billForm.value.billName,
         this.billForm.value.assetSalePrice,
         this.billForm.value.currencyType,
@@ -103,6 +110,7 @@ export class BillCreationPageComponent implements OnInit {
           this._snackBar.open('Factura creada exitosamente', 'Cerrar', {
             duration: 2000,
           });
+          this.router.navigate(['/walletList']);
         },
         (error) => {
           console.error('Error al crear la factura:', error);
