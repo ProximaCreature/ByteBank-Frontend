@@ -11,6 +11,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { WalletController } from '../../../controllers/wallet.controller';
 import { AuthService } from '@services/auth.service';
 import { CommonModule } from '@angular/common';
+import { WalletReq } from '@models/wallet-req.model';
 
 @Component({
   selector: 'app-wallet-form',
@@ -100,25 +101,48 @@ export class WalletFormComponent {
   onSubmit() {
     if (this.walletForm.valid) {
       const username = this._authService.username;
-      const walletData = {
+
+      const walletReq : WalletReq = {
         username: username,
-        ...this.walletForm.value,
+        nombreCartera: this.walletForm.value.walletName,
+        tasaInteres: this.walletForm.value.interestRate,
+        tipoTasaInteres: this.walletForm.value.interestRateType,
+        periodoTasa: this.walletForm.value.interestRatePeriod,
+        periodoCapitalizacion: this.walletForm.value.capitalizationPeriod,
+        comisionActivacionPorLetra: this.walletForm.value.activationFee,
+        portes: this.walletForm.value.portabilityFee,
+        porcentajeRetencion: this.walletForm.value.retentionPercentage,
+        gastosAdministracion: this.walletForm.value.administrativeExpenses,
+        porcentajeSeguroDegravamen: this.walletForm.value.mortgageInsurance,
+        porcentajeSeguroRiesgo: this.walletForm.value.riskInsurance,
+        plazoOperacion: this.walletForm.value.operationTerm,
+        fechaDescuento: this.walletForm.value.discountDate,
+        pagoFueraDeFecha: this.walletForm.value.paymentOutOfDate,
+        diasDespuesDelVencimiento: this.walletForm.value.overdueDays || null,
+        comisionDePagoTardio: this.walletForm.value.latePaymentFee || null,
+        tasaDeInteresMoratorio: this.walletForm.value.moratoriumInterestRate || null,
+        tipoTasaInteresMoratorio: this.walletForm.value.moratoriumInterestRateType || null,
+        periodoTasaMoratorio: this.walletForm.value.moratoriumRatePeriod || null,
+        periodoCapitalizacionTasaMoratoria: this.walletForm.value.moratoriumCapitalizationPeriod || null,
       };
 
-      this.walletController.postWallet(walletData).subscribe({
-        next: (response) => {
-          console.log('Cartera creada:', response);
-          this._snackBar.open('Cartera creada', 'Cerrar', {
-            duration: 2000,
-          });
-        },
-        error: (error) => {
-          console.error('Error al crear la cartera:', error);
-          this._snackBar.open('Error al crear la cartera', 'Cerrar', {
-            duration: 2000,
-          });
-        },
-      });
+      console.log('Cartera a crear:', walletReq);
+
+      // this.walletController.postWallet(walletReq).subscribe({
+      //   next: (response) => {
+      //     console.log('Cartera creada:', response);
+      //     this._snackBar.open('Cartera creada', 'Cerrar', {
+      //       duration: 2000,
+      //     });
+      //   },
+      //   error: (error) => {
+      //     console.error('Error al crear la cartera:', error);
+      //     this._snackBar.open('Error al crear la cartera', 'Cerrar', {
+      //       duration: 2000,
+      //     });
+      //   },
+      // });
     }
   }
+
 }
