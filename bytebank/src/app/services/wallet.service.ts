@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../environment/environment';
 import {HttpClient} from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { WalletReq } from '@models/wallet-req.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class WalletService {
   baseUrl:string = environment.baseUrl;
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  createWallet(wallet: any) {
+  createWallet(wallet: WalletReq) {
     const headers = {
       Authorization: `Bearer ${this.authService.token}`
     }
