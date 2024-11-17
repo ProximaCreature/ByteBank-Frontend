@@ -6,9 +6,9 @@
         <p class="block text-primary font-medium text-base text-center mt-3 ">
           Facturas/Letras pertenecientes a la cartera
         </p>
-        <div>
-          <button class="custom-button" mat-raised-button color="primary">AGREGAR</button>
-        </div>
+        <button class="custom-button" mat-raised-button color="primary" [routerLink]="['/createBill', walletName]">
+          AGREGAR
+        </button>
       </div>
       <app-wallet-bills-table />
     </div>
