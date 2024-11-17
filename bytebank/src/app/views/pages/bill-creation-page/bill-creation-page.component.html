@@ -1,0 +1,57 @@
+<div class="form-container">
+  <div class="title">
+    <p>Agregar Facturas y Letras</p>
+  </div>
+  <form [formGroup]="billForm" (ngSubmit)="onSubmit()">
+    <div class="form-container2">
+      <div class="form-group">
+        <label>1. Nombre</label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="billName" placeholder="Ingresa acá el dato" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label>2. Tipo de moneda</label>
+        <mat-radio-group formControlName="currencyType">
+          <mat-radio-button value="USD">Dólar</mat-radio-button>
+          <mat-radio-button value="SOL">Sol</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="form-group">
+        <label>3. Precio de venta del Activo</label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="assetSalePrice" type="number" placeholder="Ingresa acá el dato" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label>4. Fecha de firma</label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="signingDate" [matDatepicker]="picker" placeholder="Selecciona una fecha" />
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label>5. Cartera</label>
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="walletName" placeholder="Selecciona una cartera">
+            <mat-option *ngFor="let wallet of wallets" [value]="wallet.nombreCartera">
+              {{ wallet.nombreCartera }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="wallets.length === 0" class="no-wallets-message">
+          No hay carteras disponibles.
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit">AGREGAR</button>
+      </div>
+    </div>
+  </form>
+</div>
