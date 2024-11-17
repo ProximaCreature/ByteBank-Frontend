@@ -34,3 +34,19 @@
   font-size: 14px;
   margin-top: 5px;
 }
+
+.custom-button {
+  background-color: #0A2C3D !important;
+  color: #FFFFFF !important;
+  border-radius: 8px !important;
+  padding: 12px 20px !important;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #FFFFFF !important;
+  color: #0A2C3D !important;
+}

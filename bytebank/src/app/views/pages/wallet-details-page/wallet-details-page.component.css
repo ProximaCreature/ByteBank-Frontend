@@ -16,3 +16,29 @@
 .content {
   padding-bottom: 1rem;
 }
+
+.custom-button {
+  background-color: #0A2C3D !important;
+  color: #FFFFFF !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #FFFFFF !important;
+  color: #0A2C3D !important;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  gap: 4px;
+  margin-bottom: 1rem;
+  margin-top: 1.25rem;
+}

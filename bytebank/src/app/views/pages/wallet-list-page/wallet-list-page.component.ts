@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatSidenavContainer, MatSidenavContent, MatSidenavModule} from "@angular/material/sidenav";
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatSidenavContainer, MatSidenavContent, MatSidenavModule } from "@angular/material/sidenav";
 import {
   MatCell, MatCellDef,
   MatHeaderCell, MatHeaderRow, MatHeaderRowDef,
@@ -7,12 +7,12 @@ import {
   MatRow, MatRowDef,
   MatTable, MatTableDataSource, MatTableModule,
 } from "@angular/material/table";
-import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
-import {MatSort, MatSortHeader, MatSortModule} from "@angular/material/sort";
-import {MatButton} from '@angular/material/button';
-import {Wallet} from '@models/wallet.model';
-import {WalletController} from '@controllers/wallet.controller';
-import {Router, RouterLink} from '@angular/router';
+import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
+import { MatSort, MatSortHeader, MatSortModule } from "@angular/material/sort";
+import { MatButton } from '@angular/material/button';
+import { Wallet } from '@models/wallet.model';
+import { WalletController } from '@controllers/wallet.controller';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-wallet-list-page',
@@ -42,7 +42,7 @@ import {Router, RouterLink} from '@angular/router';
   templateUrl: './wallet-list-page.component.html',
   styleUrl: './wallet-list-page.component.css'
 })
-export class WalletListPageComponent implements AfterViewInit{
+export class WalletListPageComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['position', 'name', 'tcea_value', 'received_value', "delivered_value", "discount_date", "operation_term"];
   dataSource = new MatTableDataSource<Wallet>();
@@ -68,8 +68,6 @@ export class WalletListPageComponent implements AfterViewInit{
 
     const parsedUserId = userId ? parseInt(userId) : NaN;
 
-    console.log('Parsed User ID:', parsedUserId);
-
     if (isNaN(parsedUserId)) {
 
       localStorage.removeItem('userId');
@@ -84,7 +82,6 @@ export class WalletListPageComponent implements AfterViewInit{
   getWallets(userId: number) {
     this.walletController.getUserWallet(userId).subscribe(
       res => {
-        console.log('Response from API:', res);
 
         if (Array.isArray(res)) {
           const walletData: Wallet[] = res.map((wallet: any) => new Wallet(
@@ -98,7 +95,6 @@ export class WalletListPageComponent implements AfterViewInit{
             wallet.valorEntregado
           ));
 
-          console.log('Processed wallet data (array):', walletData);
           this.dataSource.data = walletData;
 
         } else if (res && typeof res === 'object') {
@@ -115,7 +111,6 @@ export class WalletListPageComponent implements AfterViewInit{
             )
           ];
 
-          console.log('Processed wallet data (object):', walletData);
           this.dataSource.data = walletData;
 
         } else {
@@ -128,7 +123,7 @@ export class WalletListPageComponent implements AfterViewInit{
     );
   }
 
-  getRow(row: any){
+  getRow(row: any) {
     this.router.navigateByUrl(`/walletDetail/${row.nombreCartera}`);
   }
 }
