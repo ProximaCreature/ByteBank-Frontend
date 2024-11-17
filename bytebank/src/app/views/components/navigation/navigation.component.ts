@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router'; // Importa Router
+
+import {Router, RouterLink} from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,7 @@ import { UserIconComponent } from '../shared/user-icon/user-icon.component';
     CommonModule,
     LogoComponent,
     UserIconComponent,
+    RouterLink,
   ],
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']

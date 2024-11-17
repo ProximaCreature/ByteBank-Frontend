@@ -129,12 +129,77 @@
     </div>
 
     <div class="checkbox font-medium">
-      <mat-checkbox formControlName="paymentOutOfDate"></mat-checkbox>
-      <span>¿Pagó fuera de fecha?</span>
+      <mat-checkbox formControlName="paymentOutOfDate">¿Pagó fuera de fecha?</mat-checkbox>
+    </div>
+
+    <div *ngIf="walletForm.get('paymentOutOfDate')?.value" class="extra-fields">
+      <div class="form-container2 max-sm:flex-col">
+        <div class="flex flex-col gap-4">
+          <span class=" text-primary font-medium">1. Días después del vencimiento</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="overdueDays" placeholder="Ingresa acá el dato" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span class=" text-primary font-medium">2. Comisión por pago tardío</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="latePaymentFee" placeholder="Ingresa acá el dato" type="number" />
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span class=" text-primary font-medium">3. Tasa de Interés Moratoria</span>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="moratoriumInterestRate" placeholder="Ingresa acá el dato" type="number" />
+            <span matTextSuffix>%</span>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span class=" text-primary font-medium">4. Tipo de Tasa de Interés</span>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="moratoriumInterestRateType" placeholder="Elija una opción">
+              <mat-option value="Efectiva">Efectiva</mat-option>
+              <mat-option value="Nominal">Nominal</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span class=" text-primary font-medium">5. Período de la Tasa</span>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="moratoriumRatePeriod" placeholder="Elija una opción">
+              <mat-option value="Anual">Anual</mat-option>
+              <mat-option value="Semestral">Semestral</mat-option>
+              <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
+              <mat-option value="Trimestral">Trimestral</mat-option>
+              <mat-option value="Bimestral">Bimestral</mat-option>
+              <mat-option value="Mensual">Mensual</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <span class=" text-primary font-medium">6. Período de Capitalización</span>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="moratoriumCapitalizationPeriod" placeholder="Elija una opción">
+              <mat-option value="Ninguno">Ninguno</mat-option>
+              <mat-option value="Anual">Anual</mat-option>
+              <mat-option value="Semestral">Semestral</mat-option>
+              <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
+              <mat-option value="Trimestral">Trimestral</mat-option>
+              <mat-option value="Bimestral">Bimestral</mat-option>
+              <mat-option value="Mensual">Mensual</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
     </div>
 
     <div class="flex justify-center items-center">
-      <button class="custom-button w-3/12 max-sm:w-full mt-4" mat-raised-button color="primary" type="submit">AGREGAR</button>
+      <button class="custom-button w-3/12 max-sm:w-full mt-4" mat-raised-button color="primary"
+        type="submit">AGREGAR</button>
     </div>
   </form>
 </div>
