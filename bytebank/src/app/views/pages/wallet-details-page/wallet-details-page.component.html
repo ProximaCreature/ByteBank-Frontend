@@ -1,11 +1,16 @@
 <mat-sidenav-container class="container">
   <mat-sidenav-content>
     <div content>
-      <app-wallet-details/>
-      <div class="mb-16 mt-20">
-        <p class="subtitle">Facturas/Letras pertenecientes a la cartera</p>
+      <app-wallet-details />
+      <div class="title-container">
+        <p class="block text-primary font-medium text-base text-center mt-3 ">
+          Facturas/Letras pertenecientes a la cartera
+        </p>
+        <div>
+          <button class="custom-button" mat-raised-button color="primary">AGREGAR</button>
+        </div>
       </div>
-      <app-wallet-bills-table/>
+      <app-wallet-bills-table />
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
