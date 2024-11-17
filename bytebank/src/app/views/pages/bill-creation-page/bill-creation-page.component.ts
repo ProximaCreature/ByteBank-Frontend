@@ -14,6 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 import { WalletController } from '@controllers/wallet.controller';
 import { AuthService } from '@services/auth.service';
 import { CreateBillCommand } from '@models/create-bill-command.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bill-creation-page',
@@ -44,7 +45,8 @@ export class BillCreationPageComponent implements OnInit {
     private walletController: WalletController,
     private billController: BillController,
     private authService: AuthService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {
     this.billForm = this.fb.group({
       walletName: ['', Validators.required],
@@ -57,6 +59,12 @@ export class BillCreationPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadWallets();
+
+    const walletNameFromRoute = this.route.snapshot.paramMap.get('walletName');
+    if (walletNameFromRoute) {
+      this.billForm.patchValue({ walletName: walletNameFromRoute });
+      this.billForm.get('walletName')?.disable();
+    }
   }
 
   private loadWallets(): void {
