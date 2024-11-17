@@ -14,7 +14,7 @@
       <div class="form-group">
         <label>2. Tipo de moneda</label>
         <mat-radio-group formControlName="currencyType">
-          <mat-radio-button value="USD">Dólar</mat-radio-button>
+          <mat-radio-button value="DOLLAR">Dólar</mat-radio-button>
           <mat-radio-button value="SOL">Sol</mat-radio-button>
         </mat-radio-group>
       </div>
@@ -44,13 +44,16 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <div *ngIf="wallets.length === 0" class="no-wallets-message">
+        <div *ngIf="!isLoading && wallets.length === 0" class="no-wallets-message">
           No hay carteras disponibles.
+        </div>
+        <div *ngIf="isLoading" class="loading-message">
+          Cargando carteras...
         </div>
       </div>
 
       <div class="form-actions">
-        <button mat-raised-button color="primary" type="submit">AGREGAR</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">AGREGAR</button>
       </div>
     </div>
   </form>

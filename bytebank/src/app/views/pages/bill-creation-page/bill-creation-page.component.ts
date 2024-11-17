@@ -9,10 +9,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { WalletController } from '../../../controllers/wallet.controller';
-import { AuthService } from '../../../services/auth.service';
-import { CreateBillCommand } from '../../../models/create-bill-command.model';
 import { BillController } from '@controllers/bill.controller';
+import { WalletController } from '@controllers/wallet.controller';
+import { AuthService } from '@services/auth.service';
+import { CreateBillCommand } from '@models/create-bill-command.model';
 
 @Component({
   selector: 'app-bill-creation-page',
@@ -36,7 +36,7 @@ import { BillController } from '@controllers/bill.controller';
 export class BillCreationPageComponent implements OnInit {
   billForm: FormGroup;
   wallets: { nombreCartera: string }[] = [];
-
+  isLoading: boolean = false;
   constructor(
     private fb: FormBuilder,
     private walletController: WalletController,
@@ -58,29 +58,23 @@ export class BillCreationPageComponent implements OnInit {
   }
 
   private loadWallets(): void {
+    this.isLoading = true;
     const userId = this.authService.user_id;
 
     this.walletController.getUserWallet(userId).subscribe({
       next: (response) => {
-        if (response && response.length > 0) {
-          this.wallets = response;
-          console.log('Carteras cargadas:', this.wallets);
-        } else {
-          console.warn('No se encontraron carteras disponibles.');
-          this._snackBar.open('No hay carteras disponibles', 'Cerrar', {
-            duration: 3000,
-          });
-        }
+        this.wallets = response || [];
+        this.isLoading = false;
       },
       error: (err) => {
         console.error('Error al cargar las carteras:', err);
         this._snackBar.open('Error al cargar las carteras', 'Cerrar', {
           duration: 2000,
         });
+        this.isLoading = false;
       },
     });
   }
-
 
   onSubmit(): void {
     if (this.billForm.valid) {
@@ -94,7 +88,6 @@ export class BillCreationPageComponent implements OnInit {
 
       this.billController.createBill(command).subscribe(
         (response) => {
-          console.log('Factura creada:', response);
           this._snackBar.open('Factura creada exitosamente', 'Cerrar', {
             duration: 2000,
           });
