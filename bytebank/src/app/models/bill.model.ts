@@ -1,17 +1,24 @@
 export class Bill {
-  id: any;
-  walletId: any;
-  name: any;
-  faceValue: any;
-  expirationDate: any;
-  currency: any;
+  id: number | null;
+  walletId: number;
+  name: string;
+  faceValue: number;
+  expirationDate: string;
+  currency: 'DOLLAR' | 'SOL';
 
-  constructor(id: any, walletId: any, name : any, faceValue: any, signatureDate: any, currency: any) {
+  constructor(
+    id: number | null,
+    walletId: number,
+    name: string,
+    faceValue: number,
+    expirationDate: string,
+    currency: 'DOLLAR' | 'SOL'
+  ) {
     this.id = id;
     this.walletId = walletId;
     this.name = name;
     this.faceValue = faceValue;
-    this.expirationDate = signatureDate;
+    this.expirationDate = expirationDate;
     this.currency = currency;
   }
 }

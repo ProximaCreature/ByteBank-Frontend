@@ -41,6 +41,10 @@ export const routes: Routes = [
       {
         path: 'walletList',
         loadComponent: () => import('./views/pages/wallet-list-page/wallet-list-page.component').then(m => m.WalletListPageComponent),
+      },
+      {
+        path: 'createBill',
+        loadComponent: () => import('./views/pages/bill-creation-page/bill-creation-page.component').then(m => m.BillCreationPageComponent),
       }
     ]
   },
