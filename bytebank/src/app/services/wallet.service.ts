@@ -17,10 +17,10 @@ export class WalletService {
     return this.http.post(this.baseUrl + 'wallets', wallet, { headers });
   }
 
-  getWalletByUserId(userId: any) {
+  getWalletByUserId(userId: number) {
     const headers = {
       Authorization: `Bearer ${this.authService.token}`
     }
-    return this.http.get(`${this.baseUrl}users/${userId}/wallets`, { headers });
+    return this.http.get(`${this.baseUrl}wallets/${userId}`, { headers });
   }
 }
