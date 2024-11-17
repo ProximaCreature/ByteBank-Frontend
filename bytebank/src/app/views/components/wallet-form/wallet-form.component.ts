@@ -63,6 +63,9 @@ export class WalletFormComponent {
       moratoriumCapitalizationPeriod: [{ value: '', disabled: true }, Validators.required],
     });
 
+    this.watchInterestRateTypeChanges();
+    this.watchMoratoriumInterestRateTypeChanges();
+
     this.walletForm.get('paymentOutOfDate')?.valueChanges.subscribe((checked) => {
       if (checked) {
         this.enableOverdueFields();
@@ -98,17 +101,39 @@ export class WalletFormComponent {
     });
   }
 
+  private watchInterestRateTypeChanges(): void {
+    this.walletForm.get('interestRateType')?.valueChanges.subscribe((value) => {
+      if (value === 'Efectiva') {
+        this.walletForm.get('capitalizationPeriod')?.disable();
+        this.walletForm.patchValue({ capitalizationPeriod: 'Ninguno' });
+      } else {
+        this.walletForm.get('capitalizationPeriod')?.enable();
+      }
+    });
+  }
+
+  private watchMoratoriumInterestRateTypeChanges(): void {
+    this.walletForm.get('moratoriumInterestRateType')?.valueChanges.subscribe((value) => {
+      if (value === 'Efectiva') {
+        this.walletForm.get('moratoriumCapitalizationPeriod')?.disable();
+        this.walletForm.patchValue({ moratoriumCapitalizationPeriod: 'Ninguno' });
+      } else {
+        this.walletForm.get('moratoriumCapitalizationPeriod')?.enable();
+      }
+    });
+  }
+
   onSubmit() {
     if (this.walletForm.valid) {
       const username = this._authService.username;
 
-      const walletReq : WalletReq = {
+      const walletReq: WalletReq = {
         username: username,
         nombreCartera: this.walletForm.value.walletName,
         tasaInteres: this.walletForm.value.interestRate,
         tipoTasaInteres: this.walletForm.value.interestRateType,
         periodoTasa: this.walletForm.value.interestRatePeriod,
-        periodoCapitalizacion: this.walletForm.value.capitalizationPeriod,
+        periodoCapitalizacion: this.walletForm.value.capitalizationPeriod || 'Ninguno',
         comisionActivacionPorLetra: this.walletForm.value.activationFee,
         portes: this.walletForm.value.portabilityFee,
         porcentajeRetencion: this.walletForm.value.retentionPercentage,
@@ -118,31 +143,30 @@ export class WalletFormComponent {
         plazoOperacion: this.walletForm.value.operationTerm,
         fechaDescuento: this.walletForm.value.discountDate,
         pagoFueraDeFecha: this.walletForm.value.paymentOutOfDate,
-        diasDespuesDelVencimiento: this.walletForm.value.overdueDays || null,
-        comisionDePagoTardio: this.walletForm.value.latePaymentFee || null,
-        tasaDeInteresMoratorio: this.walletForm.value.moratoriumInterestRate || null,
-        tipoTasaInteresMoratorio: this.walletForm.value.moratoriumInterestRateType || null,
-        periodoTasaMoratorio: this.walletForm.value.moratoriumRatePeriod || null,
-        periodoCapitalizacionTasaMoratoria: this.walletForm.value.moratoriumCapitalizationPeriod || null,
+        diasDespuesDelVencimiento: this.walletForm.value.overdueDays || 0,
+        comisionDePagoTardio: this.walletForm.value.latePaymentFee || 0,
+        tasaDeInteresMoratorio: this.walletForm.value.moratoriumInterestRate || 0,
+        tipoTasaInteresMoratorio: this.walletForm.value.moratoriumInterestRateType || 'Ninguno',
+        periodoTasaMoratorio: this.walletForm.value.moratoriumRatePeriod || 'Ninguno',
+        PeriodoCapitalizaciondeTasaMoratoria: this.walletForm.value.moratoriumCapitalizationPeriod || 'Ninguno',
       };
 
       console.log('Cartera a crear:', walletReq);
 
-      // this.walletController.postWallet(walletReq).subscribe({
-      //   next: (response) => {
-      //     console.log('Cartera creada:', response);
-      //     this._snackBar.open('Cartera creada', 'Cerrar', {
-      //       duration: 2000,
-      //     });
-      //   },
-      //   error: (error) => {
-      //     console.error('Error al crear la cartera:', error);
-      //     this._snackBar.open('Error al crear la cartera', 'Cerrar', {
-      //       duration: 2000,
-      //     });
-      //   },
-      // });
+      this.walletController.postWallet(walletReq).subscribe({
+        next: (response) => {
+          console.log('Cartera creada:', response);
+          this._snackBar.open('Cartera creada', 'Cerrar', {
+            duration: 2000,
+          });
+        },
+        error: (error) => {
+          console.error('Error al crear la cartera:', error);
+          this._snackBar.open('Error al crear la cartera', 'Cerrar', {
+            duration: 2000,
+          });
+        },
+      });
     }
   }
-
 }

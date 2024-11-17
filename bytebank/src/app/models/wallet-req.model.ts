@@ -19,7 +19,7 @@ export class WalletReq {
   periodoTasaMoratorio: string | null;
   tasaDeInteresMoratorio: number | null;
   tipoTasaInteresMoratorio: string | null;
-  periodoCapitalizacionTasaMoratoria: string | null;
+  PeriodoCapitalizaciondeTasaMoratoria: string | null;
 
   constructor(data: Partial<WalletReq>) {
     this.username = data.username || '';
@@ -42,6 +42,6 @@ export class WalletReq {
     this.periodoTasaMoratorio = data.periodoTasaMoratorio || null;
     this.tasaDeInteresMoratorio = data.tasaDeInteresMoratorio || null;
     this.tipoTasaInteresMoratorio = data.tipoTasaInteresMoratorio || null;
-    this.periodoCapitalizacionTasaMoratoria = data.periodoCapitalizacionTasaMoratoria || null;
+    this.PeriodoCapitalizaciondeTasaMoratoria = data.PeriodoCapitalizaciondeTasaMoratoria || null;
   }
 }
