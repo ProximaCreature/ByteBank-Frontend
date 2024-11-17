@@ -2,25 +2,53 @@
   max-width: 1000px;
   margin: auto;
   padding: 20px;
-  display: grid;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
+  color: #0A2C3D;
+  text-align: center;
 }
 
 .form-container2 {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.extra-fields {
+  margin-top: 16px;
+  padding: 16px;
+  border: none;
+  background-color: #fff;
 }
 
 .custom-button {
   background-color: #0A2C3D !important;
   color: #FFFFFF !important;
   border-radius: 8px !important;
+  padding: 12px 20px !important;
+  font-size: 16px;
+  font-weight: bold;
   box-shadow: none !important;
+  transition: background-color 0.3s ease;
 }
 
 .custom-button:hover {
@@ -28,3 +56,27 @@
   color: #0A2C3D !important;
 }
 
+.mat-form-field {
+  width: 100%;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.mat-radio-button {
+  margin-right: 16px;
+}
+
+@media (max-width: 768px) {
+  .form-container2 {
+    grid-template-columns: 1fr;
+    /* Para pantallas pequeñas */
+  }
+
+  .custom-button {
+    width: 100%;
+  }
+}
