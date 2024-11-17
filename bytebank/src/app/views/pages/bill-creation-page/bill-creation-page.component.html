@@ -39,21 +39,21 @@
         <label>5. Cartera</label>
         <mat-form-field appearance="outline">
           <mat-select formControlName="walletName" placeholder="Selecciona una cartera">
-            <mat-option *ngFor="let wallet of wallets" [value]="wallet.nombreCartera">
+            <mat-option *ngFor="let wallet of wallets$ | async" [value]="wallet.nombreCartera">
               {{ wallet.nombreCartera }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <div *ngIf="!isLoading && wallets.length === 0" class="no-wallets-message">
-          No hay carteras disponibles.
-        </div>
-        <div *ngIf="isLoading" class="loading-message">
+        <div *ngIf="isLoading$ | async" class="loading-message">
           Cargando carteras...
+        </div>
+        <div *ngIf="!(isLoading$ | async) && (wallets$ | async)?.length === 0" class="no-wallets-message">
+          No hay carteras disponibles.
         </div>
       </div>
 
       <div class="form-actions">
-        <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">AGREGAR</button>
+        <button class="" type="submit" [disabled]="isLoading$ | async">AGREGAR</button>
       </div>
     </div>
   </form>

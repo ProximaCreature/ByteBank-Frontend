@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BillController } from '@controllers/bill.controller';
+import { BehaviorSubject } from 'rxjs';
 import { WalletController } from '@controllers/wallet.controller';
 import { AuthService } from '@services/auth.service';
 import { CreateBillCommand } from '@models/create-bill-command.model';
@@ -35,8 +36,9 @@ import { CreateBillCommand } from '@models/create-bill-command.model';
 })
 export class BillCreationPageComponent implements OnInit {
   billForm: FormGroup;
-  wallets: { nombreCartera: string }[] = [];
-  isLoading: boolean = false;
+  wallets$ = new BehaviorSubject<{ nombreCartera: string }[]>([]);
+  isLoading$ = new BehaviorSubject<boolean>(true);
+
   constructor(
     private fb: FormBuilder,
     private walletController: WalletController,
@@ -58,20 +60,22 @@ export class BillCreationPageComponent implements OnInit {
   }
 
   private loadWallets(): void {
-    this.isLoading = true;
+    this.isLoading$.next(true);
     const userId = this.authService.user_id;
 
     this.walletController.getUserWallet(userId).subscribe({
       next: (response) => {
-        this.wallets = response || [];
-        this.isLoading = false;
+        const wallets = response || [];
+        this.wallets$.next(wallets);
+        this.isLoading$.next(false);
       },
       error: (err) => {
         console.error('Error al cargar las carteras:', err);
+        this.wallets$.next([]);
+        this.isLoading$.next(false);
         this._snackBar.open('Error al cargar las carteras', 'Cerrar', {
           duration: 2000,
         });
-        this.isLoading = false;
       },
     });
   }
