@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c4a421db-d30e-43fe-8c0b-23f66134b153" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/controllers/auth-redirect.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/controllers/auth-redirect.guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bytebank/src/app/services/wallet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/services/wallet.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/components/navigation/navigation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/components/navigation/navigation.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/views/pages/wallet-list-page/wallet-list-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/views/pages/wallet-list-page/wallet-list-page.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/wallet-table",
+    "git-widget-placeholder": "feature/bill-list",
     "last_opened_file_path": "D:/CAMILA/UPC/Ciclo 6/Finanzas e ingenieria economica/Trabajo grupal/ByteBank-Frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
