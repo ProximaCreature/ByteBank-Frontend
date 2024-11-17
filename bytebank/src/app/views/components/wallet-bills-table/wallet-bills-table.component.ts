@@ -21,7 +21,7 @@ import {DatePipe} from '@angular/common';
   styleUrl: './wallet-bills-table.component.css'
 })
 export class WalletBillsTableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['name', 'face_value', 'signature_date'];
+  displayedColumns: string[] = ['name', 'face_value', 'signature_date', 'currency'];
   dataSource = new MatTableDataSource<Bill>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -37,7 +37,7 @@ export class WalletBillsTableComponent implements AfterViewInit {
   }
 
   getBills() {
-    const walletId = this.route.snapshot.paramMap.get('username');
+    const walletId = this.route.snapshot.paramMap.get('walletName');
     this.billController.getWalletBill(walletId).subscribe(
       res => {
         if (res && Array.isArray(res.bills)) {

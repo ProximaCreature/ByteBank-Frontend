@@ -9,8 +9,8 @@ import { CreateBillCommand } from '@models/create-bill-command.model';
 export class BillController {
   constructor(private billService : BillService) {}
 
-  getWalletBill(id: any): Observable<any> {
-    return this.billService.getByWalletId(id);
+  getWalletBill(name: any): Observable<any> {
+    return this.billService.getByWalletId(name);
   }
 
   createBill(command: CreateBillCommand): Observable<any> {

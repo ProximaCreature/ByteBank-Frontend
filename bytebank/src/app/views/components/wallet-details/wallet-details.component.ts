@@ -25,7 +25,7 @@ export class WalletDetailsComponent {
   }
 
   getWallet() {
-    const walletId = this.route.snapshot.paramMap.get('username');
+    const walletId = this.route.snapshot.paramMap.get('walletName');
     this.billController.getWalletBill(walletId).subscribe(
       res => {
         if (res) {

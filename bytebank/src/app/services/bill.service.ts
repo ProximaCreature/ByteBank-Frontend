@@ -14,11 +14,11 @@ export class BillService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  getByWalletId(walletId: number): Observable<Bill[]> {
+  getByWalletId(walletName: any): Observable<Bill[]> {
     const headers = {
       Authorization: `Bearer ${this.authService.token}`
     };
-    return this.http.get<Bill[]>(`${this.baseUrl}/bills?walletId=${walletId}`, { headers });
+    return this.http.get<Bill[]>(`${this.baseUrl}/wallets/${walletName}`, { headers });
   }
 
   createBill(command: CreateBillCommand) {

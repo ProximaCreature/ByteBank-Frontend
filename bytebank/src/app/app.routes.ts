@@ -31,7 +31,7 @@ export const routes: Routes = [
     canActivateChild: [isAthenticatedGuard],
     children: [
       {
-        path: 'walletDetail/:username',
+        path: 'walletDetail/:walletName',
         loadComponent: () => import('./views/pages/wallet-details-page/wallet-details-page.component').then(m => m.WalletDetailsPageComponent),
       },
       {
