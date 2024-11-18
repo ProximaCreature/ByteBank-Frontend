@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4a421db-d30e-43fe-8c0b-23f66134b153" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bytebank/netlify.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytebank/src/app/services/wallet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/src/app/services/wallet.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bytebank/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/bytebank/angular.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,14 +46,14 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/bill-list",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/CAMILA/UPC/Ciclo 6/Finanzas e ingenieria economica/Trabajo grupal/ByteBank-Frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\Hide\\Desktop\\2024-02\\Finanzas e Ingeniería Económica\\Trabajo Grupal\\Frontend\\ByteBank-Frontend\\bytebank\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "D:\\CAMILA\\UPC\\Ciclo 6\\Finanzas e ingenieria economica\\Trabajo grupal\\ByteBank-Frontend\\bytebank\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -63,7 +65,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180" />
       </set>
     </attachedChunks>
   </component>
@@ -93,6 +95,7 @@
       <workItem from="1731758969599" duration="15020000" />
       <workItem from="1731846116762" duration="3968000" />
       <workItem from="1731868761650" duration="2230000" />
+      <workItem from="1731890300384" duration="1780000" />
     </task>
     <servers />
   </component>
