@@ -13,6 +13,7 @@ import { MatButton } from '@angular/material/button';
 import { Wallet } from '@models/wallet.model';
 import { WalletController } from '@controllers/wallet.controller';
 import { Router, RouterLink } from '@angular/router';
+import {DatePipe, PercentPipe} from "@angular/common";
 
 @Component({
   selector: 'app-wallet-list-page',
@@ -37,7 +38,9 @@ import { Router, RouterLink } from '@angular/router';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    RouterLink
+    RouterLink,
+    PercentPipe,
+    DatePipe
   ],
   templateUrl: './wallet-list-page.component.html',
   styleUrl: './wallet-list-page.component.css'
